@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="UTF-8">
+<meta name="HAOYUAN YUE" content="inclass2">
+<title>Pizza Order Form</title>
+</head>
+
+<body>
+<h1>Pizza Guys Order Form</h1>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSieySv1aorVq8Hp0pKDsWzxogAzE-M7mAU92Eoc4tS6cStlUBgIw" width="300px" title="Pizza">
+<form id="pizzaorder">
+<p>Name </p>
+<input type="text" id="name" rows="1" cols="70" value="your name" required>  </input>
+<p>Address: #### Street Name</p>
+<input type="text" id="address" rows="2" cols="70" value="delivery address" required> </input>
+<p>Phone Number: 123-123-1234</p>
+<input type="tel" id="phone" rows="2" cols="70" value="123-123-1234" pattern='\d{3}-\d{3}-\d{4}'>  </input>
+<p> Pizza size </p>
+<input required type="radio" name="pizzasize" id="sizeLarge" value="Large">Large
+<input type="radio" name="pizzasize" id="sizeMedium" value="Medium"> Medium
+<input type="radio" name="pizzasize" id="sizeSmall" value="Small"> Small
+<p> Pizza Toppings </p>
+<input type="checkbox" id="topping1" value="Sausage"> Sausage
+<input type="checkbox" id="topping2" value="Pepperoni"> Pepperoni 
+<input type="checkbox" id="topping3" value="Olives"> Olives
+<input type="checkbox" id="topping4" value="Anchovies"> Anchovies<br>
+<input type="submit" value="Place-Order" onclick="return checkvalidate(this.parent)">
+<input type="reset" value="Clear">
+</form>
+
+
+
+</html>
+
