@@ -8,19 +8,20 @@
 </head>
 
 <body>
+
 <h1>RiceBook Registration Form</h1>
 
 <form action = "formProcessor.html" method = "get" id = "Registration" >
 <p>Name: </p>
-<input type = "text" id = "name" name = "name" rows = "1" cols = "70" placeholder = "e.g. tom" pattern = "^[A-Za-z].*$" required>  </input>
+<input type = "text" id = "name" name = "name" rows = "1" cols = "70" placeholder = "e.g. tom, no digit first" pattern = "^[A-Za-z][a-zA-Z0-9]*$" required>  </input>
 <p>Email Address: </p>
 <input type = "email" id = "email" name = "email" rows = "1" cols = "70" placeholder = "e.g. a@b.c" pattern = "^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$" required> </input>
 <p>Phone Number: </p>
-<input type = "tel" id = "phone" name = "phone" rows = "1" cols = "70" placeholder = "e.g. 123-123-1234" pattern = "^\d{3}-\d{3}-\d{4}$">  </input>
+<input type = "tel" id = "phone" name = "phone" rows = "1" cols = "70" placeholder = "e.g. 123-123-1234" pattern = "^\d{3}-\d{3}-\d{4}$" required>  </input>
 <p> Date of Birth: </p>
 <input type = "text" id = "bday" name = "bday" rows = "1" cols = "70"  placeholder = "mm/dd/yyyy" required> </input>
 <p> Zip Code:</p>
-<input type = "text" id = "zipcode" name = "zipcode" rows = "1" cols = "70" placeholder = "e.g. 12345" pattern = "^\d{5}$"> </input>
+<input type = "text" id = "zipcode" name = "zipcode" rows = "1" cols = "70" placeholder = "e.g. 12345" pattern = "^\d{5}$" required> </input>
 <p> Password: </p>
 <input type = "password" id = "password" name = "password" rows = "1" cols = "70" placeholder = "e.g. 123456" required> </input>
 <p> Confirm Password: </p>
@@ -30,12 +31,14 @@
 <input type = "reset" value = "Clear">
 </form>
 
+</body>
+
 <script >
   	function checkvalidate(form){
     	if (!form) {
         	form = document.getElementById("Registration");
     	}
-    	var validpassword, validage, msg;
+    	var validpassword, validage, msg=" ";
     	var today = new Date();
         var day = today.getDate();
         var month = today.getMonth()+1;
@@ -48,7 +51,7 @@
         var confirmpassword = document.getElementById("confirmpassword").value;
         
         if (usryear == year-18) {
-        	if ((usrmonth>month) || ((usrmonth == month) && (usrbday > day))){
+        	if ((usrmonth>month) || ((usrmonth == month) && (usrday > day))){
         		validage = false;
         	} else {
         		validage = true;
@@ -61,7 +64,7 @@
         if (password === confirmpassword) {
         	validpassword = true;
         } else {
-        	validpassword = false
+        	validpassword = false;
         }
         msg += validpassword? " " : "Password should be consistent";
         msg += validage? " " : " User must be 18 years or older";
