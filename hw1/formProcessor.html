@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="UTF-8">
+<meta name="HAOYUAN YUE" content="homework1">
+<title>formProcessor</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}
+</style>
+</head>
+<body>
+<h1>User Information</h1>
+<table id="Account" style="width:100%">
+</table>
+<script>
+function getUrlParameter() {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        keyValue = {},
+        i;
+    var table=document.getElementById('Account');
+    for (i = 0; i < sURLVariables.length; i++) {
+        var row = table.insertRow(table.length);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var pair = sURLVariables[i].split("=");
+        if(pair[0] === "timestamp"){
+            cell1.innerHTML=pair[0];
+            var temp = decodeURIComponent(pair[1]);
+            var time = new Date(parseInt(temp));
+            cell2.innerHTML = time;
+        } else{
+            cell1.innerHTML = pair[0];
+            cell2.innerHTML = decodeURIComponent(pair[1]);
+        }
+    }
+}
+getUrlParameter();
+
+</script>
+</body>
+</html>

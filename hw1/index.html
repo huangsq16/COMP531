@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+
+<head>
+<meta charset = "UTF-8">
+<meta name = "HAOYUAN YUE" content = "homework1">
+<title>Index</title>
+</head>
+
+<body>
+<h1>RiceBook Registration Form</h1>
+
+<form action = "formProcessor.html" method = "get" id = "Registration" >
+<p>Name: </p>
+<input type = "text" id = "name" name = "name" rows = "1" cols = "70" placeholder = "e.g. tom" pattern = "^[A-Za-z].*$" required>  </input>
+<p>Email Address: </p>
+<input type = "email" id = "email" name = "email" rows = "1" cols = "70" placeholder = "e.g. a@b.c" pattern = "^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$" required> </input>
+<p>Phone Number: </p>
+<input type = "tel" id = "phone" name = "phone" rows = "1" cols = "70" placeholder = "e.g. 123-123-1234" pattern = "^\d{3}-\d{3}-\d{4}$">  </input>
+<p> Date of Birth: </p>
+<input type = "text" id = "bday" name = "bday" rows = "1" cols = "70"  placeholder = "mm/dd/yyyy" required> </input>
+<p> Zip Code:</p>
+<input type = "text" id = "zipcode" name = "zipcode" rows = "1" cols = "70" placeholder = "e.g. 12345" pattern = "^\d{5}$"> </input>
+<p> Password: </p>
+<input type = "password" id = "password" name = "password" rows = "1" cols = "70" placeholder = "e.g. 123456" required> </input>
+<p> Confirm Password: </p>
+<input type = "password" id = "confirmpassword" name = "confirmpassword" rows = "1" cols = "70" placeholder = "e.g. 123456" required > </input>
+<input type = "hidden" id = "timestamp" name = "timestamp" id = "timestamp" value = ""> </input>
+<input type = "submit" value = "Submit" onclick = "return checkvalidate(this.parent)">
+<input type = "reset" value = "Clear">
+</form>
+
+<script >
+  	function checkvalidate(form){
+    	if (!form) {
+        	form = document.getElementById("Registration");
+    	}
+    	var validpassword, validage, msg;
+    	var today = new Date();
+        var day = today.getDate();
+        var month = today.getMonth()+1;
+        var year = today.getFullYear();
+        var usrbday = document.getElementById("bday").value.split("/");
+        var usrday = usrbday[1];
+        var usrmonth = usrbday[0];
+        var usryear = usrbday[2];
+        var password = document.getElementById("password").value;
+        var confirmpassword = document.getElementById("confirmpassword").value;
+        
+        if (usryear == year-18) {
+        	if ((usrmonth>month) || ((usrmonth == month) && (usrbday > day))){
+        		validage = false;
+        	} else {
+        		validage = true;
+        	}
+        } else if(usryear>year-18) { 
+        	validage = false;
+        } else {
+        	validage = true;
+        }
+        if (password === confirmpassword) {
+        	validpassword = true;
+        } else {
+        	validpassword = false
+        }
+        msg += validpassword? " " : "Password should be consistent";
+        msg += validage? " " : " User must be 18 years or older";
+        if(validage && validpassword){
+        	return true;
+        } else {
+        	window.alert(msg);
+        	return false;
+        }
+    }
+
+    function timestamp(){
+    	document.getElementById("timestamp").value = Date.now();
+    }
+    timestamp();
+</script>
+
+</html>
