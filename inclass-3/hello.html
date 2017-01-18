@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Hello</title>
+    <meta charset="utf-8">
+</head>
+
+<body onload="timeout()">
+
+<p>This page will be redirected to another page in <span id="counter"></span> seconds</p>
+<textarea id="text1" rows="10" cols="50" > 
+	Add some contents
+</textarea>
+
+<button onclick="cleartext()">Clear</button>
+<button onclick="pauseinterval()">Pause</button>
+<button onclick="resumeinterval()">Resume</button>
+
+</body>
+
+<script>	
+	var itval;
+	function timeout(){
+		var alertmsg=function(){
+			var msg="the page will redirect when the counter reaches zero";
+			window.alert(msg);
+		}
+		setTimeout(alertmsg,5000);
+		itval=setInterval(countdown,1000);
+		document.getElementById('counter').innerHTML="15";
+	}
+	function countdown(){
+		var count=parseInt(document.getElementById('counter').innerHTML);
+		if(count>0){
+			count--;
+			document.getElementById('counter').innerHTML=count;
+		} else {
+			clearInterval(itval);
+			window.location="https://www.clear.rice.edu/comp431/sample/hello.html";
+		}
+	}
+	function cleartext(){
+		document.getElementById('text1').value="";
+	}
+	function pauseinterval(){
+		clearInterval(itval);
+	}
+	function resumeinterval(){
+		itval=setInterval(countdown,1000);
+	}
+</script>
+
+</html>
