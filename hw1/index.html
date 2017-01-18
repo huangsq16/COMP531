@@ -19,7 +19,7 @@
 <p>Phone Number: </p>
 <input type = "tel" id = "phone" name = "phone" rows = "1" cols = "70" placeholder = "e.g. 123-123-1234" pattern = "^\d{3}-\d{3}-\d{4}$" required>  </input>
 <p> Date of Birth: </p>
-<input type = "text" id = "bday" name = "bday" rows = "1" cols = "70"  placeholder = "mm/dd/yyyy" required> </input>
+<input type = "date" id = "bday" name = "bday" rows = "1" cols = "70" required> </input>
 <p> Zip Code:</p>
 <input type = "text" id = "zipcode" name = "zipcode" rows = "1" cols = "70" placeholder = "e.g. 12345" pattern = "^\d{5}$" required> </input>
 <p> Password: </p>
@@ -27,13 +27,13 @@
 <p> Confirm Password: </p>
 <input type = "password" id = "confirmpassword" name = "confirmpassword" rows = "1" cols = "70" placeholder = "e.g. 123456" required > </input>
 <input type = "hidden" id = "timestamp" name = "timestamp" id = "timestamp" value = ""> </input>
-<input type = "submit" value = "Submit" onclick = "return checkvalidate(this.parent)">
-<input type = "reset" value = "Clear">
+<input type = "submit" value = "Submit" onclick = "return checkvalidate(this.parent)"> </input>
+<input type = "reset" value = "Clear"> </input>
 </form>
 
 </body>
 
-<script >
+<script>
   	function checkvalidate(form){
     	if (!form) {
         	form = document.getElementById("Registration");
@@ -43,10 +43,10 @@
         var day = today.getDate();
         var month = today.getMonth()+1;
         var year = today.getFullYear();
-        var usrbday = document.getElementById("bday").value.split("/");
-        var usrday = usrbday[1];
-        var usrmonth = usrbday[0];
-        var usryear = usrbday[2];
+        var usrbday = document.getElementById("bday").value.split("-");
+        var usrday = usrbday[2];
+        var usrmonth = usrbday[1];
+        var usryear = usrbday[0];
         var password = document.getElementById("password").value;
         var confirmpassword = document.getElementById("confirmpassword").value;
         
