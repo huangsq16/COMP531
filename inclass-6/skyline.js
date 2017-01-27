@@ -32,6 +32,7 @@ var createApp = function(canvas) {
 		c.fillStyle= blgColors[ Math.floor(Math.random() * blgColors.length)];
 		c.fillRect(x0, floor - blgHeight, blgWidth, blgHeight);
 
+		//push new building into array
 		buildings.push({x:x0, y:floor - blgHeight, width:blgWidth, height: blgHeight, style: c.fillStyle});
 		c.fillStyle = "yellow";
 		for (var y = floor - floorSpacing; y > floor - blgHeight; y -= floorSpacing + windowHeight) {
@@ -62,7 +63,7 @@ var createApp = function(canvas) {
 		}
 	});
 
-	//draw car, the reason we draw car last is because that car is in front of buildings
+	//draw car, the reason we draw car last is car is in front of buildings
 	c.fillStyle = "black";
 	c.fillRect(distance % canvas.width, canvas.height / 2 - 40, 60, 40);
 
