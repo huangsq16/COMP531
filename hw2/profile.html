@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="wallpaper" lang = "en-us">
+
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "HAOYUAN YUE" content = "homework2">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="profile.js"></script>
+	<title>Profile</title>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-helper">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <strong class="navbar-brand navbar-brand-helper">RiceBook</strong>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a class="navbar-brand navbar-brand-helper" href="main.html">Main</a></li>
+	    </ul>
+	  </div>
+</nav>
+
+<div class="col-md-6 col-md-offset-3 card">
+  <table class="table">
+    <thead>
+      <tr>
+        <h1>Your Profile</h1>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Display name:</thd>
+        <td><input id="usrname" type="text" placeholder="letter and digit only, no digit first" aria-describedby="basic-addon2"></td>
+        <td><span id="curname">HAOYUAN</span></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input id="usremail" type="text" placeholder="e.g. a@b.c" aria-describedby="basic-addon2"></td>
+        <td><span id="curemail">hy23@rice.edu</span></td>
+      </tr>
+      <tr>
+        <td>Phone:</td>
+        <td><input id="usrphone" type="text" placeholder="000-000-0000" aria-describedby="basic-addon2"></td>
+        <td><span id="curphone">000-000-0000</span></td>
+      </tr>
+      <tr>
+        <td>Zip Code:</td>
+        <td><input id="usrzip" type="text" placeholder="e.g. 77005" aria-describedby="basic-addon2"></td>
+        <td><span id="curzip">77005</span></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input id="usrpwd" type="password" placeholder="e.g. 123456" aria-describedby="basic-addon2"></td>
+        <td><span id="curpwd">123456</span></td>
+      </tr>
+      <tr>
+        <td>Confirm:</td>
+        <td><input id="cfmusrpwd" type="password" placeholder="e.g. 123456" aria-describedby="basic-addon2"></td>
+        <td><span id="cfmpwd">123456</span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><button id="update-btn" type="button" class="btn btn-default">Update Profile</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="success" class="alert alert-success alert-dismissable fade in" role="alert">
+    <strong>Succeed!</strong> <span id="success-txt"></span>
+  </div>
+  <div id="fail" class="alert alert-danger alert-dismissable fade in" role="alert">
+    <strong>Oh no!</strong> <span id="fail-txt"></span>
+  </div>
+</div>
+
+</body>
+
+</html>
+
