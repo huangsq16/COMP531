@@ -59,6 +59,7 @@ function updateprofile() {
 		checkupdate(curphone, usrphone, "Phone");
 		checkupdate(curzip, usrzip, "Zip Code");
 		checkupdate(curpwd, usrpwd, "Password");
+		checkupdate(cfmpwd, usrpwdcfm, "ConfirmPassword");
 		success.style.display = "block";
 		if (update) {
 			successtxt.innerHTML = msg;
@@ -95,7 +96,7 @@ function checkvalid(element, pattern, type) {
 function checkupdate(curcontent, newcontent, type) {
 	if (newcontent.value != "" && !(curcontent.innerHTML === newcontent.value)) {
 		update = true;
-		msg += type + " is updated from " + curcontent.innerHTML + " to " + newcontent.value;
+		msg += type + " is updated from " + curcontent.innerHTML + " to " + newcontent.value +" ";
 		curcontent.innerHTML = newcontent.value;
 	}
 }
