@@ -22,6 +22,7 @@ var magiccoins = [];
 var index = 0;
 var resume = true;
 var stop = false;
+var pause = false;
 var over = false;
 var playicon = new Image();
 var pauseicon = new Image();
@@ -54,6 +55,10 @@ function drawReplayIcon() {
 	replayicon.src = "Image/replay.svg";
 	ctx.drawImage(replayicon, canvas.width / 2 - 80 / 2,
         canvas.height / 2 - 80 / 2, 80, 80);
+	ctx.font = '24px serif';
+	
+	ctx.strokeText(`your score: ${score}`, 240, 74);
+	ctx.strokeText(`highest score:${highest_score}`, 240, 50);
 	replayRaf = window.requestAnimationFrame(drawReplayIcon);
 }
 	
@@ -107,12 +112,6 @@ var ball = {
   }
 };
 
-res.addEventListener('click', function(e) {
-	if (!resume) {
-		
-	}
-});
-
 canvas.addEventListener('click', function(e) {
   if (!ball.jump) {
   	ball.jump = true;
@@ -161,22 +160,24 @@ if (x >= (canvas.width / 2 - 80 / 2) && x <= (canvas.width / 2 + 80 / 2) && y >=
 	highest_score = localStorage.getItem("highestscore");
 	txt.innerHTML = "Stop";
 	} else if (!resume) {
-		console.log("hit");	
 		window.cancelAnimationFrame(replayRaf);
 		draw();
 		resume = true;
 		highest_score = localStorage.getItem("highestscore");
 	} 
 } else if (x >= 670 && x <= 694 && y >= 50 && y <= 74) {
-		if (!stop) {
+		if (!pause) {
+			pause = true;
 		    window.cancelAnimationFrame(raf);
 		} else {
+			pause = false;
 			window.requestAnimationFrame(draw);
 		}
 		
 	}
 
 }
+
 function restoreGame() {
 	score = 0;
 	ball.radius = 25;
@@ -188,6 +189,7 @@ function restoreGame() {
 	magnification = 1;
 	coin_magnification = 1;
 	resume = false;
+	pause = false;
 	over = false;
 }
 
@@ -310,14 +312,9 @@ function draw() {
 	}
 	if (over) {
 		window.cancelAnimationFrame(raf);
+		drawReplayIcon();
 		restoreGame();
 		localStorage.setItem('highestscore', highest_score);
-		
-		drawReplayIcon();
-		//ctx.font = '36px serif';
-		//ctx.strokeText("game over, click resume", 240, 100);
-		
-		
 		return;
 	} else {
 		raf = window.requestAnimationFrame(draw);
