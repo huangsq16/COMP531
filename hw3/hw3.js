@@ -56,6 +56,7 @@ function drawReplayIcon() {
         canvas.height / 2 - 80 / 2, 80, 80);
 	replayRaf = window.requestAnimationFrame(drawReplayIcon);
 }
+	
 function coins(x, y, magic) {
 	this.tlx = x;
 	this.tly = y;
@@ -106,29 +107,6 @@ var ball = {
   }
 };
 
-window.onclick = function(evt) {
-	var rect = canvas.getBoundingClientRect();
-	var x = (evt.clientX - rect.left) 
-	var y = (evt.clientY - rect.top)
-	if (x >= (canvas.width / 2 - 80 / 2) && x <= (canvas.width / 2 + 80 / 2) && y >= (canvas.height / 2 - 80 / 2) && y <= (canvas.height / 2 + 80 / 2)) {
-		if (!stop) {
-		window.cancelAnimationFrame(startRaf);
-		draw();
-		stop = true;
-		highest_score = localStorage.getItem("highestscore");
-		txt.innerHTML = "Stop";
-		} else if (!resume) {
-			console.log("hit");	
-			window.cancelAnimationFrame(replayRaf);
-			draw();
-			resume = true;
-			highest_score = localStorage.getItem("highestscore");
-		} 
-	}
-	
-}
-
-
 res.addEventListener('click', function(e) {
 	if (!resume) {
 		
@@ -171,6 +149,34 @@ canvas.addEventListener('touchend', function(e) {
   }
 });
 
+window.onclick = function(evt) {
+var rect = canvas.getBoundingClientRect();
+var x = (evt.clientX - rect.left) 
+var y = (evt.clientY - rect.top)
+if (x >= (canvas.width / 2 - 80 / 2) && x <= (canvas.width / 2 + 80 / 2) && y >= (canvas.height / 2 - 80 / 2) && y <= (canvas.height / 2 + 80 / 2)) {
+	if (!stop) {
+	window.cancelAnimationFrame(startRaf);
+	draw();
+	stop = true;
+	highest_score = localStorage.getItem("highestscore");
+	txt.innerHTML = "Stop";
+	} else if (!resume) {
+		console.log("hit");	
+		window.cancelAnimationFrame(replayRaf);
+		draw();
+		resume = true;
+		highest_score = localStorage.getItem("highestscore");
+	} 
+} else if (x >= 670 && x <= 694 && y >= 50 && y <= 74) {
+		if (!stop) {
+		    window.cancelAnimationFrame(raf);
+		} else {
+			window.requestAnimationFrame(draw);
+		}
+		
+	}
+
+}
 function restoreGame() {
 	score = 0;
 	ball.radius = 25;
