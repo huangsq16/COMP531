@@ -69,7 +69,7 @@ class ToDos extends React.Component {
                 <a href="https://webdev-rice.herokuapp.com" target="_blank">Submit your exercise</a>
             </span>
             <ul className="todo">
-                {this.state.todoItems.map((x) => <ToDoItem key={x.id} text={x.text} remove={() => this.removeTodo(x.id)}/>)}
+                {this.state.todoItems.map((x) => <ToDoItem text={x.text} remove={() => this.removeTodo(x.id)}/>)}
             </ul>
         </div>
         
