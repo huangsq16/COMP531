@@ -25,7 +25,6 @@ const Reducer = (state =  {
 }, action) => {
 	switch(action.type) {
 		case 'ADD_TODO':
-		
 			return {
 				nextId: state.nextId + 1,
 				todoItems: [...state.todoItems,
@@ -41,7 +40,7 @@ const Reducer = (state =  {
 		case 'TOGGLE_TODO':
 			return {
 				nextId: state.nextId,
-				todoItems: state.todoItems.map(todoItems => {
+				todoItems: state.todoItems.map((todoItems) => {
 				if (todoItems.id !== action.id) {
 					return todoItems;
 				}
@@ -50,7 +49,7 @@ const Reducer = (state =  {
 					done: !todoItems.done
 				}
 			})
-			};// IMPLEMENT ME
+			};
 		default: 
 			return state
 	}
