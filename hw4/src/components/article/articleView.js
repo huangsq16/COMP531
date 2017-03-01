@@ -8,6 +8,7 @@ import SearchBar  from './searchbar'
 import { addArticle, searchKeyword } from './articleActions'
 export const ArticleView = ({articles}) => {
 	//sort article by date
+	
 	const sortedArticles = articles.sort(function(a, b) {
             let x = new Date(a.date)
             let y = new Date(b.date)

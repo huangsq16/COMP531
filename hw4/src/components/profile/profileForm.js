@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import {updateProfile, clearErr} from './profileActions'
 
-export const ProfileForm = ({userinfo, update, clear, errorMessage, successMsg}) => {
+export const ProfileForm = ({userinfo, update, clear, errorMessage, successMs}) => {
   let headline;
   let displayName;
   let email;
@@ -18,15 +18,15 @@ export const ProfileForm = ({userinfo, update, clear, errorMessage, successMsg})
     update({
       firstName: userinfo.firstName,
       lastName: userinfo.lastName,
-      userHeadline: headline.value.length > 0 ? headline.value : userinfo.userHeadline,
+      userHeadline: headline.value != "" ? headline.value : userinfo.userHeadline,
       userAvatar: userinfo.userAvatar,
-      displayName: displayName.value.length > 0 ? displayName.value : userinfo.displayName,
-      email: email.value.length > 0 ? email.value : userinfo.email,
-      phone: phone.value.length > 0 ? phone.value : userinfo.phone,
-      zip: zip.value > 0 ? zip.value : userinfo.zip,
+      displayName: displayName.value != "" ? displayName.value : userinfo.displayName,
+      email: email.value != "" ? email.value : userinfo.email,
+      phone: phone.value != "" ? phone.value : userinfo.phone,
+      zip: zip.value != "" ? zip.value : userinfo.zip,
       birthDate: userinfo.birthDate,
-      password: password.value.length > 0 ? password.value : userinfo.password,
-      confirmPassword: confirmPassword.value.length > 0 ? confirmPassword.value : userinfo.confirmPassword
+      password: password.value != "" ? password.value : userinfo.password,
+      confirmPassword: confirmPassword.value.length != "" ? confirmPassword.value : userinfo.confirmPassword
     }, userinfo);
   }
 
@@ -35,10 +35,10 @@ export const ProfileForm = ({userinfo, update, clear, errorMessage, successMsg})
     failmsg = <div className="alert alert-danger alert-dismissable fade in" role="alert">
       <p>{errorMessage}</p>
       </div>;
-  } else if (successMsg.length != 0) {
-    console.log(userinfo);
+  } else if (successMs.length != 0) {
+    
     failmsg = <div className="alert alert-success alert-dismissable fade in" role="alert">
-      <p>{successMsg}</p>
+      <p>{successMs}</p>
       </div>;
   } else {
     failmsg = <div></div>
@@ -98,7 +98,7 @@ export const ProfileForm = ({userinfo, update, clear, errorMessage, successMsg})
 export default connect(
   (state) => ({userinfo: state.userinfo,
     errorMessage: state.errorReg,
-    successMsg: state.successMsg}),
+    successMs: state.successMsg}),
   (dispatch) => ({clear: () => dispatch(clearErr()), 
     update: (updateinfo, userinfo) => dispatch(updateProfile(updateinfo, userinfo))})
   )(ProfileForm)

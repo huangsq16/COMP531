@@ -27,7 +27,7 @@ const Reducer = (state = {
         case Actions.ERROR_REGISTER:
             return { ...state, errorReg : action.errorMessage }
         case Actions.SUCCESS:
-            return { ...state, successMsg : action.msg, userinfo : action.info }
+            return { ...state, successMsg : action.errorMessage, userinfo : action.info }
         case Actions.CLEAR_ERR:
             return { ...state, errorReg : "" }
         case Actions.NAV_SIGNIN:

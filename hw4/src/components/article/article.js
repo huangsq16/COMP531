@@ -11,6 +11,4 @@ export const Article = () => {
 }
 
 export default connect(
-(state) => ({articles: state.article}),
-(dispatch) => ({})
   )(Article)

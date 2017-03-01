@@ -45,6 +45,7 @@ export function updateProfile(info, updateinfo) {
 		return {
 			type: ERROR_REGISTER,
 			errorMessage
+			
 		}	
 	}
 }

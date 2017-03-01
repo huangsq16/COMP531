@@ -25,9 +25,9 @@ export const NewArticle = ({addtext, user}) => {
 						<div className="uploadContainer">
 							<input className="uploadinline" type="file"></input>
 							<button type="reset" className="resettext"> reset </button>
-							<button className="text-submit" onClick={_add} ><i className="glyphicon glyphicon-pencil"></i> Submit</button>
 						</div>
 						</form>
+						<button className="text-submit" onClick={_add} ><i className="glyphicon glyphicon-pencil"></i> Submit</button>
 					</div>
 				</div>
 		    </div>

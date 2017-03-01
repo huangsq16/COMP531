@@ -8,7 +8,7 @@ export const Landing = ({location}) => {
     let view
     if (location == 'signUp') {
         view = <SignUp/>
-    } else if (location == 'signIn'){
+    } else {
         view = <SignIn/>
     }
     return (
