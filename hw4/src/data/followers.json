@@ -1,0 +1,16 @@
+{ "followers": [{
+        "id": 0,
+        "name": "Owen",
+        "avatar": "http://img.hb.aicdn.com/08653c6e238c66f8e04a40abab5f6992f544856e5172a-2exdOm_sq320",
+        "headline": "No free time"
+    },{
+        "id": 1,
+        "name": "John",
+        "avatar": "http://img.hb.aicdn.com/08653c6e238c66f8e04a40abab5f6992f544856e5172a-2exdOm_sq320",
+        "headline": "No free food"
+    },{
+        "id": 2,
+        "name": "Zak",
+        "avatar": "http://img.hb.aicdn.com/08653c6e238c66f8e04a40abab5f6992f544856e5172a-2exdOm_sq320",
+        "headline": "No free drink"
+    }]}
