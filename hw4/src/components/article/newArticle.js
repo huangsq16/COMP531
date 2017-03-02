@@ -14,7 +14,7 @@ export const NewArticle = ({addtext, user}) => {
 		})
 	}
 	//render text area test
-	//
+	
 	return (
 		<div className="container">
 	    	<div className="row">

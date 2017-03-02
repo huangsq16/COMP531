@@ -66,6 +66,9 @@ export const ArticleView = ({articles}) => {
 	)
 }
 
+ArticleView.propTypes = {
+    articles: PropTypes.array.isRequired
+}
 
 export default connect(
   (state) => ({articles: state.article}),

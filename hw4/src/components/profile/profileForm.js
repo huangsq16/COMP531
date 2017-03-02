@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import {updateProfile, clearErr} from './profileActions'
-
+import Avatar from './avatar.js'
 export const ProfileForm = ({userinfo, update, clear, errorMessage, successMs}) => {
   let headline;
   let displayName;
@@ -47,9 +47,7 @@ export const ProfileForm = ({userinfo, update, clear, errorMessage, successMs}) 
   //return content be rendered
   return (
     <div className="profile-card">
-      <div className="user-avatar">
-      <img className="img_respoonsive" src={userinfo.userAvatar}/>
-      </div>
+      <Avatar/>
       <div className="update-container">
         <input className="upload-inline" type="file" accept="image/*"></input>
         <button type="submit" className="update-button" onClick={_update}><i className="glyphicon glyphicon-pencil"></i> Update</button>
@@ -93,6 +91,15 @@ export const ProfileForm = ({userinfo, update, clear, errorMessage, successMs}) 
       </div>
     </div>
   )
+}
+
+
+ProfileForm.propTypes = {
+    userinfo: PropTypes.object.isRequired,
+    errorMessage: PropTypes.string.isRequired,
+    successMs: PropTypes.string.isRequired,
+    update: PropTypes.func.isRequired,
+    clear: PropTypes.func.isRequired
 }
 
 export default connect(
