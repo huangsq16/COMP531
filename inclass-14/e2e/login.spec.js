@@ -44,7 +44,7 @@ describe('Test Dummy Server Example Page', () => {
             .then(findId('newHeadline').sendKeys(headline)
                 .then(findId('headline').click())
                 .then(findId('message').getText()
-                    .then(text => {expect(text).to.equal(newheadline)})))
+                    .then(text => {expect(text).to.equal(headline)})))
 
         done()
     })
