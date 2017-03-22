@@ -1,0 +1,68 @@
+.profile-card{
+	position: relative;
+	margin: 2% auto;
+	background-color: #fff;
+	padding: 0; 
+	width: 400px;
+	border: none; 
+	box-shadow: 0 3px 15px 0 rgba(0,0,0,.16);
+}
+.profile-card .user-info {
+	padding: 0.5em 1.5em;
+}
+.profile-card p {
+	font-size: 16px;
+	color: silver;
+	margin: 0 0 6px;
+}
+
+.update-info {
+	border-bottom: 1px solid #d8dade;
+	width: 100%;
+	font-size: 16px;
+	height: 20px;
+}
+
+input: placeholder-shown {
+	color: black;
+}
+
+.user-headline {
+	margin-top: -10%;
+}
+
+.user-avatar {
+	width: 400px;
+	height: 300px;
+	overflow: hidden;
+}
+
+.user-avatar img {
+	width:100%;
+}
+
+.update-container {
+	background-color: #f5f5f5;
+	display: inline-block;
+	width: 100%;
+	height: 36px;
+}
+.update-button {
+	position: absolute;
+	margin-top: 0%;
+	padding: .4em .6em;
+	box-sizing: border-box;
+	font-size: 16px;
+	border-radius: 2px;
+	border: solid 0px;
+	background-color: #f5f5f5;
+	color: gray;
+	right: 0;
+}
+.user-profile {
+	display:block;
+}
+.upload-inline {
+	position: absolute;
+    left: 0;
+}
