@@ -17,8 +17,8 @@ describe('Validate Article functionality', () => {
             })
             .then(res => {
                 expect(res.articles.length).to.have.above(2)
-            })
-		done(new Error('Not implemented'))
+            }).then(done).catch(done)
+		
  	}, 200)
 
 	it('should add two articles with successive article ids, and return the article each time', (done) => {
@@ -47,7 +47,7 @@ describe('Validate Article functionality', () => {
             expect(res.articles.text).to.eql(newArticle1.text)
             expect(res.articles.author).to.eql(newArticle1.author)
             id = res.articles.id
-        })
+        }).then(done).catch(done)
        
         fetch(url('/article'),{
             method:'POST',
@@ -65,8 +65,7 @@ describe('Validate Article functionality', () => {
             expect(res.articles.text).to.eql(newArticle2.text)
             expect(res.articles.author).to.eql(newArticle2.author)
             expect(res.articles.id).to.eql(id + 1)
-        })
-		done(new Error('Not implemented'))
+        }).then(done).catch(done)
  	}, 200)
 
 	it('should return an article with a specified id', (done) => {
@@ -91,8 +90,8 @@ describe('Validate Article functionality', () => {
         })
         .then(res => {
             expect(res.articles.id).to.eql(id)
-        })
-		done(new Error('Not implemented'))
+        }).then(done).catch(done)
+		
 	}, 200)
 
 	it('should return nothing for an invalid id', (done) => {
@@ -105,8 +104,8 @@ describe('Validate Article functionality', () => {
             })
             .then(res => {
                 expect(res.articles.length).to.eql(0)
-            })
-		done(new Error('Not implemented'))
+            }).then(done).catch(done)
+		
 	}, 200)
 
 });
