@@ -7,18 +7,11 @@ import { Comment } from './comment'
 import SearchBar  from './searchbar'
 import { addArticle, searchKeyword } from './articleActions'
 export const ArticleView = ({articles}) => {
-	//sort article by date
-	
-	/*const sortedArticles = articles.sort(function(a, b) {
-            let x = new Date(a.date)
-            let y = new Date(b.date)
-            return ((x>y) ? -1 :((x<y)?1:0))
-        });*/
 	// render each article
-	const articleItems = sortedArticles.map((article) => {
+	const articleItems = articles.map((article) => {
 		const date = moment(new Date(article.date));
 		return (
-        	<div key= {article.id} className="container">
+        	<div key= {article._id} className="container">
 			    <div className="article-card-part">
 			        <div className="panel panel-white post panel-shadow">
 			            <div className="post-heading">

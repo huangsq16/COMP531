@@ -2,12 +2,12 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addArticle } from './articleActions'
 
-export const NewArticle = ({addtext}) => {
+export const NewArticle = ({addtext, avatar}) => {
 	let _text
 	const _add = () => {
 		addtext({
-			text: _text ? _text.value : "", 
-		})
+			text: _text.value, 
+		}, avatar)
 	}
 	//render text area test
 	
@@ -20,10 +20,10 @@ export const NewArticle = ({addtext}) => {
 						<textarea className="text-area" placeholder="What are you doing right now?"  ref={(node) => _text = node} ></textarea>
 						<div className="uploadContainer">
 							<input className="uploadinline" type="file"></input>
-							<input type="reset" className="resettext"> reset </input>
-							<input className="text-submit" onClick={_add} ><i className="glyphicon glyphicon-pencil"></i> Submit</input>
+							<button type="reset" className="resettext"> reset </button>
 						</div>
 						</form>
+						<button className="text-submit" onClick={_add} ><i className="glyphicon glyphicon-pencil"></i> Submit</button>
 					</div>
 				</div>
 		    </div>
@@ -33,13 +33,12 @@ export const NewArticle = ({addtext}) => {
 
 
 NewArticle.propTypes = {
-    user: PropTypes.object.isRequired,
     addtext: PropTypes.func.isRequired
 }
 
 export default connect (
-	(state) => {},
+	(state) => ({avatar: state.avatar}),
 	(dispatch) => ({
-		addtext: (text) => dispatch(addArticle(text))
+		addtext: (text) => addArticle(text)(dispatch)
 	})
 )(NewArticle)

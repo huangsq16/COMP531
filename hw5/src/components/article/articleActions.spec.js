@@ -1,9 +1,9 @@
 import { expect } from 'chai'
 import mockery from 'mockery'
 import fetch, { mock } from 'mock-fetch'
-import * from './articleActions'
+import * as articleAction from './articleActions'
 
-
+let url = 'test'
 describe('Validate Article actions', () => {
 
     beforeEach(() => {
@@ -28,39 +28,38 @@ describe('Validate Article actions', () => {
         mock(`${url}/articles`,{
             method:'GET',
             headers: {'Content-Type':'application/json'},
-            json: { articles: [
+            json: { "articles": [
                 {
-                    id : 0,
-                    text: "test",
-                    date: "2015-09-05T06:25:36.770Z",
-                    img: "http://lorempixel.com/340/241/",
-                    comments: [],
-                    author: "test"
+                    "id" : "0",
+                    "text": "test",
+                    "date": "2015-09-05T06:25:36.770Z",
+                    "img": "http://lorempixel.com/340/241/",
+                    "comments": [],
+                    "author": "test"
                 },
                 {
-                    id: 1,
-                    text: "test",
-                    date: "2016-09-05T06:25:36.770Z",
-                    img: "http://lorempixel.com/340/241/",
-                    comments: [],
-                    author: "test"
+                    "id": "1",
+                    "text": "test",
+                    "date": "2016-09-05T06:25:36.770Z",
+                    "img": "http://lorempixel.com/340/241/",
+                    "comments": [],
+                    "author": "test"
                 }
             ]}
         })
 
-        const action = fetchArticles()
-        expect(action).to.satisfy((action) => {
-            return action.type=='FETCH_ARTICLES' && action.sortedArticles[0].id == 1
+        const action = articleAction.fetchArticle()(action => {
+        		expect(action).to.satisfy((action) => {
+            		return action.type=='FETCH_ARTICLES' && action.sortedArticles[0].id == "1"
+        		})
         })
+        done()
 
     })
 
     it('should update the search keyword', ()=>{
         const keyword = 'keyword'
-        expect(searchKeyword(keyword)).to.eql({type:'FILTER_KEYWORD',keyword})
-        
+        expect(articleAction.searchKeyword(keyword)).to.eql({type:'FILTER_KEYWORD',keyword})
     })
-
-
 
 })

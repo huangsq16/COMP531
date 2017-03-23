@@ -49,7 +49,7 @@ SignIn.propTypes = {
 }
 
 export default connect(
-  (state) => {},
-  (dispatch) => ({ login: (info, userinfo) => dispatch(handleLogin(info, userinfo)),
+  null,
+  (dispatch) => ({ login: (info) => handleLogin(info)(dispatch),
   navToSignUp: () => dispatch(navSignUp()),clear: () => dispatch(clearErr()) })
   )(SignIn)

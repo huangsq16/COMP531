@@ -1,11 +1,8 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-
 import { handleSubmit, clearErr, navSignIn} from './authActions'
 
 export const SignUp = ({submit, errorMessage, clear, navToSignIn}) => {
-  let firstName;
-  let lastName;
   let displayName;
   let email;
   let phone;
@@ -18,8 +15,6 @@ export const SignUp = ({submit, errorMessage, clear, navToSignIn}) => {
   const _submit = () => {
     clear();
     submit({
-      firstName: firstName ? firstName.value : null,
-      lastName: lastName ? lastName.value : null,
       displayName: displayName ? displayName.value : null,
       email: email ? email.value : null,
       phone: phone ? phone.value : null,
@@ -47,10 +42,6 @@ export const SignUp = ({submit, errorMessage, clear, navToSignIn}) => {
       </div>
     <div className="card">
       <h1 className = "txt-align-center">Sign up</h1>
-      <div>
-      <input className = "firstname" name="firstName" type="text" ref={(node) => firstName = node} placeholder="First Name" maxLength = "32"/>
-      <input className = "lastname" name="lastName" type="text" ref={(node) => lastName = node} placeholder="Last Name" maxLength = "32"/>
-      </div>
         <div>
             <input className = "commoninput" name="displayName" type="text" ref={(node) => displayName = node} placeholder="Display name"/>
         </div> 
@@ -92,8 +83,8 @@ SignUp.propTypes = {
 }
 
 export default connect(
-  (state) => ({errorMessage: state.errorReg}),
-  (dispatch) => ({ submit: (info) => dispatch(handleSubmit(info)),
+  (state) => ({errorMessage: state.errorMsg}),
+  (dispatch) => ({ submit: (info) => handleSubmit(info)(dispatch),
                     clear: () => dispatch(clearErr()),
                     navToSignIn: () => dispatch(navSignIn()) })
   )(SignUp)

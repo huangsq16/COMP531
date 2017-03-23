@@ -12,7 +12,7 @@ export const Follower = ({ followers, adFollower, rmFollower}) => {
 	//render each follower, rm follower func will be called by button
 	const followerItems =followers.map((follower) => {
 		return(
-        	<div key={follower.id} className="follower">
+        	<div key={follower.name} className="follower">
 				<div className="media-left">
 				<img className="followingImage" src={follower.avatar} />
 				</div>	
@@ -25,7 +25,7 @@ export const Follower = ({ followers, adFollower, rmFollower}) => {
 				</div>
 				</div>
 				<div className="media-right">
-					<button onClick={() => rmFollower(follower.id)}>
+					<button onClick={() => rmFollower(follower.name)}>
 					<span className="glyphicon glyphicon-remove"></span>
 					</button>
 				</div>	

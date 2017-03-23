@@ -1,22 +1,26 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import {updateProfile, clearErr} from './profileActions'
+
 import Avatar from './avatar.js'
-export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDate, update, clear, errorMessage, successMs}) => {
+export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDate, password, update, clear, errorMessage, successMs}) => {
+  let _headline
+  let displayName
   let email;
   let zip;
   let _birthDate;
-  let password;
+  let _password;
   let confirmPassword;
   let failmsg;
   let failtxt = errorMessage;
   const _update = () => {
     clear();
     update({
+      headline: _headline.value != ""? _headline.value : headline,
       email: email.value != "" ? email.value : Email,
       zipcode: zip.value != "" ? zip.value : zipcode,
-      password: password.value != "" ? password.value : password,
-      confirmPassword: confirmPassword.value.length != "" ? confirmPassword.value : password
+      password: _password.value != "" ? _password.value : password,
+      confirmPassword: confirmPassword.value != "" ? confirmPassword.value : password
     });
   }
 
@@ -47,7 +51,7 @@ export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDa
       <div className="user-profile">
         <div className="user-info">
         <p>Headline:</p>
-        <input className="update-info" placeholder={headline} name="headline" ref={(node) => headline = node}/>
+        <input className="update-info" placeholder={headline} name="headline" ref={(node) => _headline = node}/>
         </div>
         <div className="user-info">
         <p>Display name:</p>
@@ -55,7 +59,7 @@ export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDa
         </div>
         <div className="user-info">
         <p>Email:</p>
-        <input className="update-info" placeholder={email} name="email" ref={(node) => email = node}/>
+        <input className="update-info" placeholder={Email} name="email" ref={(node) => email = node}/>
         </div>
         <div className="user-info">
         <p>Zipcode:</p>
@@ -67,7 +71,7 @@ export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDa
         </div>
         <div className="user-info">
         <p>Password:</p>
-        <input className="update-info" name="password" ref={(node) => password = node} />
+        <input className="update-info" name="_password" ref={(node) => _password = node} />
         </div>
         <div className="user-info">
         <p>Confirm Password:</p>
@@ -93,8 +97,9 @@ export default connect(
     zipcode: state.zipcode,
     Email: state.email,
     birthDate: state.dob,
+    password: state.password,
     errorMessage: state.errorMsg,
     successMs: state.successMsg}),
   (dispatch) => ({clear: () => dispatch(clearErr()), 
-    update: (updateinfo) => dispatch(updateProfile(updateinfo))})
+    update: (updateinfo) => updateProfile(updateinfo)(dispatch)})
   )(ProfileForm)

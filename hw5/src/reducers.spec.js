@@ -1,27 +1,25 @@
 import { expect } from 'chai'
 import mockery from 'mockery'
 import fetch, {mock} from 'mock-fetch'
-
+import * as action from './actions'
 import Reducer from './reducers'
-import {articles} from './reducers'
-import {filter} from './components/article/articlesView'
 
-const articlesItems = require('./data/article.json');
-const followersItems = require('./data/followers.json');
-const profile = require('./data/profile.json');
 
 const initialState = {
     location : "signIn",
-    errorReg : "",
+    errorMsg : "",
     successMsg: "",
-    profile: 1,
-    nextId: 10,
-    nextFollowerId: 3,
     keyword: "",
-    followers: followersItems.followers,
-    article : articlesItems.articles,
-    filteredArticles: articlesItems.articles,
-    userinfo: profile.userinfo
+    username: "",
+    headline: "",
+    avatar: "",
+    zipcode: "",
+    email: "",
+    dob: "",
+    flag: 1,
+    followers: [],
+    article : [],
+    filteredArticles: []
 }
 
 const newArticle = {
@@ -40,32 +38,38 @@ describe('Validate reducer (no fetch requests here)', ()=> {
     })
 
     it('should state success (for displaying success message to user)', ()=>{
-        const successMsg = 'success'
+        const successMsg = ''
         expect(Reducer(undefined, {type:'SUCCESS', successMsg}))
-        .to.eql({...initialState, successMsg: action.successMsg})
+        .to.eql({...initialState, successMsg: successMsg})
     })
 
     it('should state error (for displaying error message to user)', ()=>{
-        const errorMsg = 'error'
+        const errorMsg = ''
         expect(Reducer(undefined, {type:'ERROR', errorMsg}))
-        .to.eql({...initialState, errorReg: action.errorMsg})
+        .to.eql({...initialState, errorMsg: errorMsg})
     })
 
 
     it('should set the articles',()=> {
-        expect(Reducer(undefined, {type:'POST', newArticle}))
-        .to.eql({...initialState, nextId: initialState.nextId + 1,
-            article: [...initialState.article, 
-            {id: initialState.nextId, text: newArticle.text, date: newArticle.date, img: newArticle.img, comments: newArticle.comments, author: newArticle.author}
-            ]})
+        initialState['article'] = [newArticle]
+        initialState['filteredArticles'] = [newArticle]
+        expect(Reducer(undefined, {type:'ADD_ARTICLE', article: newArticle}))
+        .to.eql(initialState)
     })
 
     
     it('should set the search keyword', ()=>{
-        expect(Reducer(undefined, {type:'SET_KEYWORD', newKeyword})).to.eql({...initialState, keyword: newKeyword}})
+        expect(Reducer(undefined, {type:'FILTER_KEYWORD', keyword: 'test'})).to.satisfy(
+            action => {
+                return action.keyword == 'test'
+            }
+        )
     })
 
     it('should filter displayed articles by the search keyword',()=> {
-        expect(Reducer(undefined,{type:'FILTER_KEYWORD', newKeyword})).to.eql(...initialState, filteredArticles: [{id:9, text:'this is test purpose for hy23 only', date:'2015-05-10T15:22:03.638Z', img: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg', comments: [], author: 'Follower'}]);
+        initialState['article'] = []
+        initialState['filteredArticles'] = []
+        initialState['keyword'] = 'test'
+        expect(Reducer(undefined,{type:'FILTER_KEYWORD', keyword: 'test'})).to.eql(initialState);
     })
 })

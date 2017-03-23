@@ -4,7 +4,9 @@ import { searchKeyword } from './articleActions'
 export const SearchBar = ({filter}) => {
 	let keyword;
 	const _filter = () => {
-		filter(keyword? keyword.value: "");
+		if (keyword != undefined){
+			filter(keyword.value);
+		}
 	}	
 	//render search bar	
 	return (

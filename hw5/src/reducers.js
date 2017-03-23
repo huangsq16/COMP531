@@ -17,10 +17,12 @@ const Reducer = (state = {
     filteredArticles: []
 }, action) => {
     switch (action.type) {
+        case Actions.LOGIN:
+            return {...state, location: "main", flag: 1, password: action.password, username: action.username }
         case Actions.NAV_LANDING:
             return { ...state, location : "landing" }
         case Actions.NAV_MAIN:
-            return { ...state, location : "main", flag: 1 }
+            return { ...state, location : "main", flag: 1}
         case Actions.NAV_PROFILE:
             return { ...state, location : "profile", flag: 0}
         case Actions.NAV_SIGNIN:
@@ -31,16 +33,12 @@ const Reducer = (state = {
             return {...state, errorMsg: action.errorMsg}
         case Actions.SUCCESSMSG:
             return {...state, successMsg: action.successMsg}
-        /*case Actions.NEW_USER_INFO:
-            return { ...state, location : "main", userinfo : action.info}
-        case Actions.SUCCESS:
-            return { ...state, successMsg : action.errorMessage, userinfo : action.info }*/
         case Actions.CLEAR_ERR:
             return { ...state, errorMsg : "" }
         case Actions.FILTER_KEYWORD:
-            return {...state, keyword : action.keyword, filteredArticles: state.article.filter((a) => {return a.text.indexOf(action.keyword) > 0 || a.author == action.keyword})}
-        case Actions.FETCH_FOLLOWERS:
-            return {...state, followers: action.follower}
+            return {...state, keyword : action.keyword, filteredArticles: (state.keyword.length == 0) ? (state.article) : state.article.filter((a) => {return a.text.indexOf(action.keyword) >= 0 || a.author == action.keyword})}
+        case Actions.FETCH_FOLLOWER:
+            return {...state, followers: action.followers}
         case Actions.ADD_FOLLOWER:
             return {...state, 
                 followers: [...state.followers,{name: action.name, avatar: action.avatar, headline: action.headline}], 
@@ -56,11 +54,13 @@ const Reducer = (state = {
         case Actions.FETCH_ARTICLES:
             return {...state, article: action.sortedArticles, filteredArticles: action.sortedArticles}
         case Actions.POST:
-            return {...state, article: [...state.article, action._article]}
+            return {...state, article: [action.article, ...state.article], filteredArticles: [action.article, ...state.filteredArticles]}
         case Actions.UPDATE_HEADLINE:
             return {...state, headline: action.text }
         case Actions.UPDATE_PROFILE:
-            return {...state, successMsg: action.successMsg, email: action.email, zipcode: action.zipcode, password: action.password }
+            return {...state, successMsg: action.successMsg, email: action.action.email, zipcode: action.action.zipcode}
+        case Actions.FETCH_PROFILE:
+            return {...state, headline: action.headline, email: action.email, zipcode: action.zipcode, dob: new Date(action.dob), avatar: action.avatars}
         default:
             return state
     }

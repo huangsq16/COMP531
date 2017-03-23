@@ -1,5 +1,6 @@
 import { ERRORMSG, UPDATE_PROFILE, FETCH_PROFILE, resource } from '../../actions'
-
+import {updateHeadline} from '../main/mainActions'
+import Promise from 'bluebird'
 // errorMessage for alerting
 var errorMessage = "";
 
@@ -21,69 +22,85 @@ export const clearErr = () => {
 }
 
 export const fetchProfile = () => {
+
 	const action = {type: FETCH_PROFILE }
-	resource('GET', 'email').then(r => {
+	const headlineFetch = resource('GET', 'headlines').then(r => {
+		action['headline'] = r.headlines[0].headline
+
+	})
+	const emailFetch = resource('GET', 'email').then(r => {
 		action['email'] = r.email
 	})
-	resource('GET', 'zipcode').then(r => {
+	const zipcodeFetch = resource('GET', 'zipcode').then(r => {
 		action['zipcode'] = r.zipcode
 	})
-	resource('GET', 'dob').then(r => {
+	const dobFetch = resource('GET', 'dob').then(r => {
 		action['dob'] = r.dob
 	})
-	resource('GET', 'avatars').then(r => {
-		action['avatars'] = r.avatar
+	const avatarsFetch = resource('GET', 'avatars').then(r => {
+		action['avatars'] = r.avatars[0].avatar
 	})
-	return action
+	
+	return (dispatch) => {Promise.all([headlineFetch,emailFetch, zipcodeFetch, dobFetch, avatarsFetch]).then(
+		r => dispatch(action))}
 }
+
 export function updateProfile(info) {
 	// reset errorMessage and flag
+
 	errorMessage = "";
 	update = false;
 	valid = true;
-
 	//check valid for each input
 	checkvalid(info.email, emailpattern, "Email");
-	checkvalid(info.zip, zippattern, "Zip Code");
-	checkvalid(info.password, info.ConfirmPassword, "Password");
-	const action = { type: UPDATEPROFILE }
-	if (valid) {
+	checkvalid(info.zipcode, zippattern, "Zip Code");
+	checkvalid(info.password, info.confirmPassword, "Password");
+	const action = { type: UPDATE_PROFILE }
+	return (dispatch) => {
+		updateHeadline(info.headline)(dispatch)
+		if (valid) {
 		let updateFlag = true;
 		const successMsg = "Update succeed";
-		resource('PUT', 'email', {email: info.email})
+
+		const emailUpdate = resource('PUT', 'email', {email: info.email})
 		.then(r => { action['email'] = r.email })
 		.catch(_ => {
 			updateFlag = false;
 		})
-		resource('PUT', 'zipcode', {zipcode: info.zip})
+		const zipcodeUpdate = resource('PUT', 'zipcode', {zipcode: info.zipcode})
 		.then(r => { action['zipcode'] = r.zipcode})
 		.catch(_ => {
 			updateFlag = false;
 		})
-		resource('PUT', 'password', {password: info.password})
-		.then(r => { action['password'] = r.password})
+		const passwordUpdate = resource('PUT', 'password', {password: info.password})
+		.then(r => {})
 		.catch(_ => {
 			updateFlag = false;
 		})
-		if (updateFlag) {
-			return {
-				type: UPDATE_PROFILE,
-				successMsg,
-				action
-			}
-		} else {
-			errorMessage = "update failed"
-			return {
-				type: ERRORMSG,
-				errorMessage	
-			}	
-		}
+		Promise.all([emailUpdate, zipcodeUpdate, passwordUpdate]).then(
+			r => {
+				if (updateFlag){
+					dispatch({
+					type: UPDATE_PROFILE,
+					successMsg,
+					action
+					})
+				} else {
+					errorMessage = "update failed"
+					dispatch({
+						type: ERRORMSG,
+						errorMsg: errorMessage	
+					}) 
+				} 
+				
+			})
 	} else {
-		return {
-			type: ERROR_REGISTER,
-			errorMessage
-		}	
+		return dispatch({
+			type: ERRORMSG,
+			errorMsg: errorMessage
+		})	
 	}
+}
 }
 
 function checkvalid(element, pattern, type) {

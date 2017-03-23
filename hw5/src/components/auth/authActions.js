@@ -1,7 +1,7 @@
-import { NAV_SIGNUP, NAV_SIGNIN, NAV_MAIN, NEW_USER_INFO, ERRORMSG, SUCCESSMSG, CLEAR_ERR, resource } from '../../actions'
+import { LOGIN, NAV_SIGNUP, NAV_SIGNIN, NAV_MAIN, NEW_USER_INFO, ERRORMSG, SUCCESSMSG, CLEAR_ERR, resource } from '../../actions'
 import {fetchArticle} from '../article/articleActions'
 import {getFollower} from '../main/followingActions'
-
+import {fetchProfile} from '../profile/profileActions'
 let valid = true;
 let errorMessage = " ";
 
@@ -24,23 +24,26 @@ export const navSignUp = () => {
 }
 
 export const logout = () => {
-  return resource('PUT', 'logout')
+  return dispatch => {resource('PUT', 'logout')
     .then(r => {
-        return {
+        dispatch({
             type: NAV_SIGNIN
-        }
+        })
     } )
 }
+}
 
-export const handleLogin = (username, password) => {
+export const handleLogin = (userinfo) => {
 	errorMessage = "";
 	valid = true;
+    
     return (dispatch) => {
-        resource('POST', 'login', { username: username, password: password })
+        resource('POST', 'login', userinfo)
         .then(r => {
-            dispatch({type: NAV_MAIN, username, password})
-            dispatch(fetchArticle())
-            dispatch(getFollower())
+            dispatch({type: LOGIN, username: userinfo.username, password: userinfo.password})
+            fetchArticle()(dispatch)
+            getFollower()(dispatch)
+            fetchProfile()(dispatch)
         }).catch(err => {
             return {
                 type: 'ERRORMSG',
@@ -51,23 +54,23 @@ export const handleLogin = (username, password) => {
 	
 }
 
-export const handleSubmit = (info) => {
+export const handleSubmit = ({displayName, email, phone, zip, birthDate, password, confirmPassword}) => {
 	errorMessage = "";
 	valid = true;
-	handleNameChange(info.firstName, "firstName");
-    handleNameChange(info.lastName, "LastName");
-    handleEmailChange(info.email, "email");
-    handlePhoneChange(info.phone, "phone");
-    handleZipChange(info.zip, "zip");
-    handleBirthDateChange(info.birthDate, "date");
-    handleConfirmPasswordChange(info.password, info.confirmPassword, "password");
-    if (valid) {
-        const userinfo = {username: info.displayName, email: info.email, bob: info.birth, zipcode: info.zipcode, password: info.password}
-        resource('POST', 'register', userinfo).then((response) => {
-            return { type: SUCCESSMSG, successMsg: "You have successfully registered"}
+    handleEmailChange(email, "email");
+    handlePhoneChange(phone, "phone");
+    handleZipChange(zip, "zip");
+    handleBirthDateChange(birthDate, "date");
+    handleConfirmPasswordChange(password, confirmPassword, "password");
+    return (dispatch) => {
+        if (valid) {
+        const userinfo = { displayName, email, birthDate, zip, password}
+        resource('POST', 'register', userinfo).then((r) => {
+            dispatch({ type: SUCCESSMSG, successMsg: r.result })
         })
     } else {
-    	return { type: ERRORMSG, errorMsg: errorMessage};
+        dispatch({ type: ERRORMSG, errorMsg: errorMessage}) ;
+    }
     }
 }
 

@@ -33,8 +33,8 @@ export const SimpleProfile = ({username, avatar, headline, updatehl}) => {
 
 SimpleProfile.propTypes = {
     username: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    headline: PropTypes.string.isRequired,
+    //avatar: PropTypes.string.isRequired,
+    //headline: PropTypes.string.isRequired,
     updatehl: PropTypes.func.isRequired
 }
 

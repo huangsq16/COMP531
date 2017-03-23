@@ -4,7 +4,7 @@ export const Comment = (props) => {
 	const commentItems = props.comments.map((comment) => {
 		const date = moment(new Date(comment.date));
 		return(
-			<div key={comment.id}>
+			<div key={comment.commentId}>
 			<ul className="comments-list">
 	          <li className="comment">
 	            <a className="pull-left" href="#">

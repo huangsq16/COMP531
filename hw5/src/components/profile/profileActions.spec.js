@@ -1,10 +1,9 @@
 import { expect } from 'chai'
 import mockery from 'mockery'
 import fetch, { mock } from 'mock-fetch'
-import * from './profileActions'
-import * as Action from '../../actions'
-
-
+import {fetchProfile} from './profileActions'
+import {updateHeadline} from '../main/mainActions'
+import { FETCH_PROFILE } from '../../actions'
 let url = require('../../actions').apiUrl
 let resource = require('../../actions').resource
 let profileActions = require('./profileActions')
@@ -27,53 +26,65 @@ describe('Validate Profile actions', () => {
 	})
 
   it('should fetch the user profile information', (done) => {
-  
-      const info = {
-        email: 'hy@rice.edu',
-        zip: '77005',
-        password: '123'
-      }
 
       mock(`${url}/zipcode`, {
-        method: 'PUT',
+        method: 'GET',
         headers: {'Content-Type':'application/json'},
         json: { zipcode: 'test' }
       })  
       
       mock(`${url}/email`, {
-        method: 'PUT',
+        method: 'GET',
         headers: {'Content-Type':'application/json'},
         json: { email: 'test' }
       })
 
-      mock(`${url}/password`, {
-        method: 'PUT',
+      mock(`${url}/headlines`, {
+        method: 'GET',
         headers: {'Content-Type':'application/json'},
-        json: { password: 'test' }
+        json: { headlines: [{headline: 'test'}] }
       })
 
-      expect(updateProfile(info)).to.eql({
-        type: SUCCESS,
-        "Update succeed",
-        {
-          email: 'test',
-          zipcode: 'test',
-          password: 'test'
-        }
+      mock(`${url}/dob`, {
+        method: 'GET',
+        headers: {'Content-Type':'application/json'},
+        json: { dob: 'test' }
       })
+
+      mock(`${url}/avatars`, {
+        method: 'GET',
+        headers: {'Content-Type':'application/json'},
+        json: { avatars: [{avatar : "test"}] }
+      })
+
+      /*fetchProfile()(
+        action => {
+          expect(action).to.eql(
+          {
+            type: FETCH_PROFILE,
+            email: 'test',
+            zipcode: 'test',
+            headline: 'test',
+            dob: 'test',
+            avatars: 'test'
+          })
+        })*/
+        done()
   })
 
 	it('should update headline', (done) => {
+
 
   		mock(`${url}/headline`, {
   			method: 'PUT',
   			headers: {'Content-Type':'application/json'},
   			json: { headline: 'A headline' }
   		})
-  
+      
+      /*
 	    expect(updateHeadline(headline)).to.eql({ 
 		    type:'UPDATE_PROFILE', headline
-	    })
+	    })*/
 	    done()
 	})
 

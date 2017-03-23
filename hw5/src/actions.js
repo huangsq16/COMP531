@@ -1,5 +1,7 @@
+import Promise from 'bluebird'
+import fetch from 'isomorphic-fetch'
 
-const url = 'https://webdev-dummy.herokuapp.com'
+export const apiUrl = 'https://webdev-dummy.herokuapp.com'
 
 export const resource = (method, endpoint, payload) => {
   const options =  {
@@ -9,19 +11,23 @@ export const resource = (method, endpoint, payload) => {
       'Content-Type': 'application/json'
     }
   }
-  if (payload) options.body = JSON.stringify(payload)
 
-  return fetch(`${url}/${endpoint}`, options)
+  if (payload) options.body = JSON.stringify(payload)
+  return fetch(`${apiUrl}/${endpoint}`, options)
     .then(r => {
       if (r.status === 200) {
         return (r.headers.get('Content-Type').indexOf('json') > 0) ? r.json() : r.text()
       } else {
+        // useful for debugging, but remove in production
+        console.error(`${method} ${endpoint} ${r.statusText}`)
         throw new Error(r.statusText)
       }
     })
-}
-export const FETCH_PROFILE = 'FETCH_PROFILE'
 
+}
+export const LOGIN = 'LOGIN'
+export const FETCH_PROFILE = 'FETCH_PROFILE'
+export const FETCH_FOLLOWER = 'FETCH_FOLLOWER'
 export const FILTER_KEYWORD = "FILTER_KEYWORD";
 export const NAV_SIGNUP = 'NAV_SIGNUP'
 export const NAV_LANDING = 'NAVIGATE_LANDING'

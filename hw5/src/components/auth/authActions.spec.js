@@ -1,8 +1,8 @@
 import { expect } from 'chai'
 import mockery from 'mockery'
 import fetch, { mock } from 'mock-fetch'
-import { handleLogin, logOut } from './authActions'
-
+import { handleLogin, logout } from './authActions'
+let url = "test"
 describe('Validate Authenticate Actions', () => {
     beforeEach(() => {
         if (mockery.enable) {
@@ -21,8 +21,8 @@ describe('Validate Authenticate Actions', () => {
  
     it('should log in a user', (done)=>{
 
-        const username = "hy23"
-        const password = "123"
+        const username = "guest"
+        const password = "visitor"
 
         mock(`${url}/login`, {
             method: 'POST',
@@ -30,11 +30,14 @@ describe('Validate Authenticate Actions', () => {
             json: {username, result:'success'}
         })
        
-        expect(handleLogin(username, password)).to.eql({
-            type:'LOGIN_LOCAL',
-            username,
-            password
-        })
+        handleLogin(username, password)(
+            action => {
+                expect(action).to.eql({
+                    type:'LOGIN',
+                    username,
+                    password
+                })
+            })
         done()
     })
 
@@ -51,10 +54,13 @@ describe('Validate Authenticate Actions', () => {
             statusText: 'Unauthorized'
         })
 
-        expect(handleLogin(username2, password2)).to.eql({
+        handleLogin(username2, password2)(
+            action => {
+                expect(action).to.eql({
             type:'ERRORMSG',
             error : 'Unauthorized'
         })
+            })
         done()
 
     })
@@ -64,9 +70,10 @@ describe('Validate Authenticate Actions', () => {
             method: 'PUT',
             headers: {'Content-Type':'application/json'}
         })
-        
-        expect(logOut()).to.eql({
+        logout()(action => {
+            expect(action).to.eql({
             type:'NAV_SIGNIN'
+            })
         })
         done()   
     })
