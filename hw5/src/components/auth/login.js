@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 
 import { navMain, handleLogin, navSignUp, clearErr } from './authActions'
 
-export const SignIn = ({login, clear, navToSignUp}) => {
+export const SignIn = ({login, clear, navToSignUp, errorMessage, successMs}) => {
   let username;
   let password;
-
+  let failmsg;
   // fake login, we let any user can access the main page
   const _login = () => {
     clear();
@@ -15,7 +15,17 @@ export const SignIn = ({login, clear, navToSignUp}) => {
       password: password ? password.value : null
     });
   }
-  
+  if (errorMessage.length != 0) {
+    failmsg = <div className="alert alert-danger alert-dismissable fade in" role="alert">
+      <p>{errorMessage}</p>
+      </div>;
+  } else if (successMs.length != 0) {
+    failmsg = <div className="alert alert-success alert-dismissable fade in" role="alert">
+      <p>{successMs}</p>
+      </div>;
+  } else {
+    failmsg = <div></div>
+  }
   // return content to be rendered
   return (
     <div>
@@ -38,6 +48,7 @@ export const SignIn = ({login, clear, navToSignUp}) => {
         <p className = "txt-warning"> New User? <a href = "#" onClick ={navToSignUp}>Register</a></p>
       </div>
     </div>
+    {failmsg}
     </div>
   )
 }
@@ -49,7 +60,8 @@ SignIn.propTypes = {
 }
 
 export default connect(
-  null,
+  (state) => ({errorMessage: state.errorMsg,
+    successMs: state.successMsg}),
   (dispatch) => ({ login: (info) => handleLogin(info)(dispatch),
   navToSignUp: () => dispatch(navSignUp()),clear: () => dispatch(clearErr()) })
   )(SignIn)

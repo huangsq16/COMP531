@@ -10,7 +10,6 @@ export const NewArticle = ({addtext, avatar}) => {
 		}, avatar)
 	}
 	//render text area test
-	
 	return (
 		<div className="container">
 	    	<div className="row">
@@ -23,7 +22,7 @@ export const NewArticle = ({addtext, avatar}) => {
 							<button type="reset" className="resettext"> reset </button>
 						</div>
 						</form>
-						<button className="text-submit" onClick={_add} ><i className="glyphicon glyphicon-pencil"></i> Submit</button>
+						<button className="text-submit" onClick={_add} >Submit</button>
 					</div>
 				</div>
 		    </div>
@@ -39,6 +38,6 @@ NewArticle.propTypes = {
 export default connect (
 	(state) => ({avatar: state.avatar}),
 	(dispatch) => ({
-		addtext: (text) => addArticle(text)(dispatch)
+		addtext: (text, avatar) => addArticle(text, avatar)(dispatch)
 	})
 )(NewArticle)

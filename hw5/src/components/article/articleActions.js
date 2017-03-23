@@ -13,7 +13,8 @@ export function searchKeyword(keyword) {
 export const addArticle = (article, avatar) => {
 	return (dispatch) => {resource('POST', 'article', article).then(r => {
 		const _article = r.articles[0]
-		_articles[0]['img'] = avatar
+		console.log(avatar)
+		_article['img'] = avatar
 		dispatch({
 			type: POST,
 			article: _article
@@ -23,8 +24,7 @@ export const addArticle = (article, avatar) => {
 }
 
 export const fetchArticle = () => {
-	
-	return (dispatch) => {
+		return (dispatch) => {
 		resource('GET', 'articles').then((r) => {
 		const sortedArticles = r.articles.sort(function(a, b) {
             let x = new Date(a.date)
@@ -33,7 +33,7 @@ export const fetchArticle = () => {
         });
         dispatch({
         	type: FETCH_ARTICLES,
-        	sortedArticles
+        	sortedArticles: sortedArticles
         })
 	})}
 }

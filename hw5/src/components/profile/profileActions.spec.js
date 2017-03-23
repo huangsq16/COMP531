@@ -1,21 +1,18 @@
 import { expect } from 'chai'
 import mockery from 'mockery'
 import fetch, { mock } from 'mock-fetch'
-import {fetchProfile} from './profileActions'
-import {updateHeadline} from '../main/mainActions'
-import { FETCH_PROFILE } from '../../actions'
-let url = require('../../actions').apiUrl
-let resource = require('../../actions').resource
-let profileActions = require('./profileActions')
 
 describe('Validate Profile actions', () => {
-
+  let actions, profileActions, mainActions
 	beforeEach(() => {
   		if (mockery.enable) {
 			mockery.enable({warnOnUnregistered: false, useCleanCache:true})
 			mockery.registerMock('node-fetch', fetch)
 			require('node-fetch')
   		}
+      actions = require('../../actions')
+      profileActions = require('./profileActions')
+      mainActions = require('../main/mainActions')
 	})
 
 	afterEach(() => {
@@ -27,64 +24,65 @@ describe('Validate Profile actions', () => {
 
   it('should fetch the user profile information', (done) => {
 
-      mock(`${url}/zipcode`, {
+      mock(`${actions.apiUrl}/zipcode`, {
         method: 'GET',
         headers: {'Content-Type':'application/json'},
         json: { zipcode: 'test' }
       })  
       
-      mock(`${url}/email`, {
+      mock(`${actions.apiUrl}/email`, {
         method: 'GET',
         headers: {'Content-Type':'application/json'},
         json: { email: 'test' }
       })
 
-      mock(`${url}/headlines`, {
+      mock(`${actions.apiUrl}/headlines`, {
         method: 'GET',
         headers: {'Content-Type':'application/json'},
         json: { headlines: [{headline: 'test'}] }
       })
 
-      mock(`${url}/dob`, {
+      mock(`${actions.apiUrl}/dob`, {
         method: 'GET',
         headers: {'Content-Type':'application/json'},
         json: { dob: 'test' }
       })
 
-      mock(`${url}/avatars`, {
+      mock(`${actions.apiUrl}/avatars`, {
         method: 'GET',
         headers: {'Content-Type':'application/json'},
         json: { avatars: [{avatar : "test"}] }
       })
 
-      /*fetchProfile()(
+      profileActions.fetchProfile()(
         action => {
           expect(action).to.eql(
           {
-            type: FETCH_PROFILE,
+            type: 'FETCH_PROFILE',
             email: 'test',
             zipcode: 'test',
             headline: 'test',
             dob: 'test',
             avatars: 'test'
           })
-        })*/
+        })
         done()
   })
 
 	it('should update headline', (done) => {
+      const _headline = 'new headline'
 
-
-  		mock(`${url}/headline`, {
+  		mock(`${actions.apiUrl}/headline`, {
   			method: 'PUT',
   			headers: {'Content-Type':'application/json'},
-  			json: { headline: 'A headline' }
+  			json: { headline: _headline }
   		})
       
-      /*
-	    expect(updateHeadline(headline)).to.eql({ 
-		    type:'UPDATE_PROFILE', headline
-	    })*/
+	    mainActions.updateHeadline(_headline)(action => {
+        expect(action).to.eql({ 
+          type: 'UPDATE_HEADLINE', text: _headline
+        })
+      })
 	    done()
 	})
 

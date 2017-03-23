@@ -4,7 +4,6 @@ import fetch, {mock} from 'mock-fetch'
 import * as action from './actions'
 import Reducer from './reducers'
 
-
 const initialState = {
     location : "signIn",
     errorMsg : "",
@@ -30,7 +29,6 @@ const newArticle = {
     author: "test"
 }
 
-const newKeyword = 'hy23'
     
 describe('Validate reducer (no fetch requests here)', ()=> {
     it('should return the initial state', ()=>{
@@ -38,26 +36,23 @@ describe('Validate reducer (no fetch requests here)', ()=> {
     })
 
     it('should state success (for displaying success message to user)', ()=>{
-        const successMsg = ''
-        expect(Reducer(undefined, {type:'SUCCESS', successMsg}))
+        const successMsg = 'test'
+        expect(Reducer(undefined, {type:'SUCCESSMSG', successMsg}))
         .to.eql({...initialState, successMsg: successMsg})
     })
 
     it('should state error (for displaying error message to user)', ()=>{
-        const errorMsg = ''
-        expect(Reducer(undefined, {type:'ERROR', errorMsg}))
+        const errorMsg = 'test'
+        expect(Reducer(undefined, {type:'ERRORMSG', errorMsg}))
         .to.eql({...initialState, errorMsg: errorMsg})
     })
 
-
     it('should set the articles',()=> {
-        initialState['article'] = [newArticle]
-        initialState['filteredArticles'] = [newArticle]
+        
         expect(Reducer(undefined, {type:'ADD_ARTICLE', article: newArticle}))
-        .to.eql(initialState)
+        .to.eql({...initialState, article: [newArticle], filteredArticles: [newArticle]})
     })
 
-    
     it('should set the search keyword', ()=>{
         expect(Reducer(undefined, {type:'FILTER_KEYWORD', keyword: 'test'})).to.satisfy(
             action => {
@@ -67,9 +62,6 @@ describe('Validate reducer (no fetch requests here)', ()=> {
     })
 
     it('should filter displayed articles by the search keyword',()=> {
-        initialState['article'] = []
-        initialState['filteredArticles'] = []
-        initialState['keyword'] = 'test'
-        expect(Reducer(undefined,{type:'FILTER_KEYWORD', keyword: 'test'})).to.eql(initialState);
+        expect(Reducer(undefined,{type:'FILTER_KEYWORD', keyword: 'aa'})).to.eql({...initialState, keyword: 'aa'});
     })
 })

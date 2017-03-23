@@ -2,21 +2,21 @@
 import moment from 'moment'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import NewArticle from './newArticle'
+
 import { Comment } from './comment'
-import SearchBar  from './searchbar'
+
 import { addArticle, searchKeyword } from './articleActions'
 export const ArticleView = ({articles}) => {
 	// render each article
 	const articleItems = articles.map((article) => {
 		const date = moment(new Date(article.date));
 		return (
-        	<div key= {article._id} className="container">
+        	<div key={article._id} className="container">
 			    <div className="article-card-part">
 			        <div className="panel panel-white post panel-shadow">
 			            <div className="post-heading">
 			                <div className="pull-left image">
-			                    <img src={article.img} className="img-circle avatar" alt="user profile image"/>
+			                {article.img &&<img src={article.img} className="img-circle avatar" alt="user profile image"/>}
 			                </div>
 			                <div className="pull-left meta">
 			                    <div className="title h5">
@@ -29,7 +29,8 @@ export const ArticleView = ({articles}) => {
 			                </div>
 			            </div> 
 			            <div className="post-description">
-			            	<img id="img1" className="img_respoonsive" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg" alt="Image"/> 
+			            	{article.img && <img id="img1" className="img_respoonsive" src={article.img} alt="Image"/> }
+			            	
 			                <p>{article.text}</p>
 			            </div>
 			            <div className="post-footer">
@@ -51,9 +52,7 @@ export const ArticleView = ({articles}) => {
 	});
 
 	return (
-		<div className="article-part">
-			<NewArticle/>
-			<SearchBar/>
+		<div>
 			{articleItems}
 		</div>
 	)

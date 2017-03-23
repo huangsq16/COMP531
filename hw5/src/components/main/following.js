@@ -1,14 +1,25 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addFollower, removeFollower } from './followingActions'
-export const Follower = ({ followers, adFollower, rmFollower}) => {
-	let _follower;
+export const Follower = ({ followers, adFollower, rmFollower, errorMessage, successMs}) => {
+	let _follower, failmsg
 	// add new follower 
 	const _addFollower = () => {
 		if (_follower.value != "") {
 			adFollower(_follower.value);
 		}
 	}
+	if (errorMessage.length != 0) {
+    failmsg = <div className="alert alert-danger alert-dismissable fade in" role="alert">
+      <p>{errorMessage}</p>
+      </div>;
+  } else if (successMs.length != 0) {
+    failmsg = <div className="alert alert-success alert-dismissable fade in" role="alert">
+      <p>{successMs}</p>
+      </div>;
+  } else {
+    failmsg = <div></div>
+  }
 	//render each follower, rm follower func will be called by button
 	const followerItems =followers.map((follower) => {
 		return(
@@ -35,6 +46,7 @@ export const Follower = ({ followers, adFollower, rmFollower}) => {
 
 	return (
 		<div className="follower-container">
+		{failmsg}
 		<input className="headline-input" name="follower" ref={(node) => _follower = node} placeholder="Add new follower"/>
 		<button className="headline-update-button" onClick={_addFollower}><span className="glyphicon glyphicon-plus"></span></button>
 		{followerItems}
@@ -49,7 +61,9 @@ Follower.propTypes = {
 }
 
 export default connect(
-  (state) => ({followers: state.followers}),
+  (state) => ({followers: state.followers,
+  	errorMessage: state.errorMsg,
+  	successMs: state.successMsg}),
   (dispatch) => ({adFollower : (name) => dispatch(addFollower(name)),
   	rmFollower : (id) => dispatch(removeFollower(id))})
   )(Follower)
