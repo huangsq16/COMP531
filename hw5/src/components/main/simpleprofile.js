@@ -9,24 +9,24 @@ export const SimpleProfile = ({username, avatar, headline, updatehl}) => {
 	}
 	// different from profile, it's a simplified version of profile.
 	const simpleProfile = (
-		<div className="simpleprofile-part col-sm-offset-2">
-			<div className="thumbnail">	
-				<h3 className="txt-align-center">{username}</h3>	
-	          	<img id="img1" className="img_respoonsive" src={avatar} alt="Avatar"/>
-	          	<div className="caption">
-	              	<div>
-	        		<input className = "headline-input" name="displayName" type="text" ref={(node) => displayName = node} placeholder={headline}/>
-	        		<button onClick={_updatehl} className="headline-update-button" >
-						<span className="glyphicon glyphicon-pencil"></span>
-					</button>
-	    			</div> 
-	          	</div>		
-	    	</div>
-			<Follower/>
-    	</div>)
+		<div className="thumbnail">	
+			<h3 className="txt-align-center">{username}</h3>	
+          	<img id="img1" className="img_respoonsive" src={avatar} alt="Avatar"/>
+          	<div className="caption">
+              	<div>
+        		<input className = "headline-input" name="displayName" type="text" ref={(node) => displayName = node} placeholder={headline}/>
+        		<button onClick={_updatehl} className="headline-update-button" >
+					<span className="glyphicon glyphicon-pencil"></span>
+				</button>
+    			</div> 
+          	</div>		
+    	</div>
+		
+    )
 	return (
-		<div>
+		<div className="col-sm-12">
 		{simpleProfile}
+		<Follower/>
 		</div>
 	)
 }

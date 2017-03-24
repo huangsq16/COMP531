@@ -10,14 +10,10 @@ export const SearchBar = ({filter}) => {
 	}	
 	//render search bar	
 	return (
-		<div className="container">
-	    	<div className="row">
-	    	<div className="status-update">
-				<input className="searchbar" onChange={_filter} ref={(node) => keyword = node} placeholder="Filter" type="text"/>
-				</div>
-			</div>
-	    </div>
-);
+    	<div className="status-update">
+			<input className="searchbar" onChange={_filter} ref={(node) => keyword = node} placeholder="Filter" type="text"/>
+		</div>
+	);
 }
 
 SearchBar.propTypes = {

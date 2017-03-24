@@ -27,7 +27,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">60% </span>
@@ -101,20 +101,7 @@
 52
 53
 54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+55</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -128,19 +115,6 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,43 +168,30 @@ export const ArticleView = ({articles}) =&gt; {
 	const articleItems = articles.map((article) =&gt; {
 		const date = moment(new Date(article.date));
 		return (
-        	&lt;div key={article.id} className="container"&gt;
-			    &lt;div className="article-card-part"&gt;
-			        &lt;div className="panel panel-white post panel-shadow"&gt;
-			            &lt;div className="post-heading"&gt;
-			                &lt;div className="pull-left image"&gt;
-			                    &lt;img src={article.img} className="img-circle avatar" alt="user profile image"/&gt;
-			                &lt;/div&gt;
-			                &lt;div className="pull-left meta"&gt;
-			                    &lt;div className="title h5"&gt;
-			                        &lt;a href="#"&gt;&lt;b&gt;{article.author}&lt;/b&gt;&lt;/a&gt;
-			                    &lt;/div&gt;
-			                    &lt;h6 className="text-muted time"&gt;{date.format('MM-DD-YYYY')} at {date.format('HH:mm:ss')}&lt;/h6&gt;
-			                &lt;/div&gt;
-			                &lt;div className="article-edit"&gt;
-			                	&lt;a href="#"&gt;&lt;i className="glyphicon glyphicon-pencil article-edit"&gt;&lt;/i&gt;&lt;/a&gt;  
-			                &lt;/div&gt;
-			            &lt;/div&gt; 
-			            &lt;div className="post-description"&gt;
-			            	&lt;img id="img1" className="img_respoonsive" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg" alt="Image"/&gt; 
-			                &lt;p&gt;{article.text}&lt;/p&gt;
-			            &lt;/div&gt;
-			            &lt;div className="post-footer"&gt;
-			                &lt;form className="commentinline"&gt; 
-			                    &lt;input className="commentinput" placeholder="Add a comment" type="text"/&gt;
-			                    &lt;button type="button" className="btn btn-default submit"&gt;
-								  &lt;span className="glyphicon glyphicon-pencil" &gt;&lt;/span&gt;
-								&lt;/button&gt;
-								&lt;button type="reset" className="btn btn-default reset" &gt;
-								  &lt;span className="glyphicon glyphicon-trash" &gt;&lt;/span&gt;
-								&lt;/button&gt;
-			                &lt;/form&gt;
-			               &lt;Comment comments={article.comments}/&gt;
-			            &lt;/div&gt;
-			        &lt;/div&gt;
-			    &lt;/div&gt;
+        	&lt;div key={article._id + Math.random() * 10}&gt;
+		        &lt;div className="panel panel-white post panel-shadow"&gt;
+		            &lt;div className="post-heading"&gt;
+		                &lt;div className="pull-left image"&gt;{article.img &amp;&amp;&lt;img src={article.img} className="img-circle avatar" alt="user profile image"/&gt;}&lt;/div&gt;
+		                &lt;div className="pull-left meta"&gt;
+		                    &lt;div className="title h5"&gt;&lt;a href="#"&gt;&lt;b&gt;{article.author}&lt;/b&gt;&lt;/a&gt;&lt;/div&gt;
+		                    &lt;h6 className="text-muted time"&gt;{date.format('MM-DD-YYYY')} at {date.format('HH:mm:ss')}&lt;/h6&gt;
+		                &lt;/div&gt;
+		                &lt;div className="article-edit"&gt;&lt;a href="#"&gt;&lt;i className="glyphicon glyphicon-pencil article-edit"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+		            &lt;/div&gt; 
+		            &lt;div className="post-description"&gt;{article.img &amp;&amp; &lt;img id="img1" className="img_respoonsive" src={article.img} alt="Image"/&gt; }&lt;p&gt;{article.text}&lt;/p&gt;&lt;/div&gt;
+		            &lt;div className="post-footer"&gt;
+		                &lt;form &gt; 
+		                	&lt;div className="commentinline"&gt;
+		                    &lt;input className="commentinput" placeholder="Add a comment" type="text"/&gt;
+		                    &lt;button type="button" className="btn btn-default submit"&gt;&lt;span className="glyphicon glyphicon-pencil" &gt;&lt;/span&gt;&lt;/button&gt;
+							&lt;button type="reset" className="btn btn-default reset" &gt;&lt;span className="glyphicon glyphicon-trash" &gt;&lt;/span&gt;&lt;/button&gt;
+							&lt;/div&gt;
+		                &lt;/form&gt;
+		               &lt;Comment comments={article.comments}/&gt;
+		            &lt;/div&gt;
+		        &lt;/div&gt;
 			&lt;/div&gt;
-        	);
+        );
 	});
 &nbsp;
 	return (
@@ -254,7 +215,7 @@ export default connect(
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 17:14:07 GMT-0500 (Central Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 22:10:05 GMT-0500 (Central Daylight Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

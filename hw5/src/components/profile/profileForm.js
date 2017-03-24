@@ -49,34 +49,13 @@ export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDa
       {failmsg}
       </div>
       <div className="user-profile">
-        <div className="user-info">
-        <p>Headline:</p>
-        <input className="update-info" placeholder={headline} name="headline" ref={(node) => _headline = node}/>
-        </div>
-        <div className="user-info">
-        <p>Display name:</p>
-        <input className="update-info" placeholder={username} name="displayName" ref={(node) => displayName = node}/>
-        </div>
-        <div className="user-info">
-        <p>Email:</p>
-        <input className="update-info" placeholder={Email} name="email" ref={(node) => email = node}/>
-        </div>
-        <div className="user-info">
-        <p>Zipcode:</p>
-        <input className="update-info" placeholder={zipcode} name="zip" ref={(node) => zip = node}/>
-        </div>
-        <div className="user-info">
-        <p>Birth date:</p>
-        <input className="update-info" placeholder={birthDate} name="_birthDate" ref={(node) => _birthDate = node} disabled/>
-        </div>
-        <div className="user-info">
-        <p>Password:</p>
-        <input className="update-info" name="_password" ref={(node) => _password = node} />
-        </div>
-        <div className="user-info">
-        <p>Confirm Password:</p>
-        <input className="update-info" name="confirmPassword" ref={(node) => confirmPassword = node}/>
-        </div>
+        <div className="user-info"><p>Headline:</p><input className="update-info" placeholder={headline} name="headline" ref={(node) => _headline = node}/></div>
+        <div className="user-info"><p>Display name:</p><input className="update-info" placeholder={username} name="displayName" ref={(node) => displayName = node}/></div>
+        <div className="user-info"><p>Email:</p><input className="update-info" placeholder={Email} name="email" ref={(node) => email = node}/></div>
+        <div className="user-info"><p>Zipcode:</p><input className="update-info" placeholder={zipcode} name="zip" ref={(node) => zip = node}/></div>
+        <div className="user-info"><p>Birth date:</p><input className="update-info" placeholder={birthDate} name="_birthDate" ref={(node) => _birthDate = node} disabled/></div>
+        <div className="user-info"><p>Password:</p><input className="update-info" name="_password" ref={(node) => _password = node} /></div>
+        <div className="user-info"><p>Confirm Password:</p><input className="update-info" name="confirmPassword" ref={(node) => confirmPassword = node}/></div>
       </div>
     </div>
   )

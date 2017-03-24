@@ -28,27 +28,30 @@ export const SignIn = ({login, clear, navToSignUp, errorMessage, successMs}) => 
   }
   // return content to be rendered
   return (
-    <div>
-        <div>
+    <div className = "container">
+      <div className = "row">
+        <div className = "col-sm-6 col-sm-offset-3">
         <h1 className = "logo">RICE BOOK</h1>
         </div>
-
-    <div className="card">
-      <h1 className = "txt-align-center">Sign In</h1>
-        <div>
-            <input className = "commoninput" name="username" type="text" ref={(node) => username = node} placeholder="User Name"/>
-        </div>    
-        <div>
-            <input className = "commoninput" name="password" type="password" ref={(node) => password = node} placeholder="Password"/>
-        </div> 
-        <div>
-        <button onClick={_login} className="btn btn-primary pure-button">Sign In</button>
-        </div>
-        <div>
-        <p className = "txt-warning"> New User? <a href = "#" onClick ={navToSignUp}>Register</a></p>
       </div>
-    </div>
-    {failmsg}
+      <div className = "row">
+        <div className="col-sm-4 col-sm-offset-4 card">
+          <h1 className = "txt-align-center">Sign In</h1>
+            <div>
+                <input className = "commoninput" name="username" type="text" ref={(node) => username = node} placeholder="User Name"/>
+            </div>    
+            <div>
+                <input className = "commoninput" name="password" type="password" ref={(node) => password = node} placeholder="Password"/>
+            </div> 
+            <div>
+            <button onClick={_login} className="btn btn-primary pure-button">Sign In</button>
+            </div>
+            <div>
+            <p className = "txt-warning"> New User? <a href = "#" onClick ={navToSignUp}>Register</a></p>
+            </div>
+        </div>
+      </div>
+      {failmsg}
     </div>
   )
 }

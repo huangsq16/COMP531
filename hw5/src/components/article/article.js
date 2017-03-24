@@ -6,7 +6,7 @@ import NewArticle from './newArticle'
 import SearchBar  from './searchbar'
 export const Article = () => {
 	return (
-		<div className="article-part">
+		<div className = "col-sm-12">
 			<NewArticle/>
 			<SearchBar/>
 			<ArticleView/>

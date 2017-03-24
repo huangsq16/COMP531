@@ -11,21 +11,17 @@ export const NewArticle = ({addtext, avatar}) => {
 	}
 	//render text area test
 	return (
-		<div className="container">
-	    	<div className="row">
-		    	<div className="status-update">
-		    		<div className= "container-text-area">
-		    			<form>
-						<textarea className="text-area" placeholder="What are you doing right now?"  ref={(node) => _text = node} ></textarea>
-						<div className="uploadContainer">
-							<input className="uploadinline" type="file"></input>
-							<button type="reset" className="resettext"> reset </button>
-						</div>
-						</form>
-						<button className="text-submit" onClick={_add} >Submit</button>
-					</div>
+    	<div className="status-update">
+    		<div className= "container-text-area">
+    			<form>
+				<textarea className="text-area" placeholder="What are you doing right now?"  ref={(node) => _text = node} ></textarea>
+				<div className="uploadContainer">
+					<input className="uploadinline" type="file"></input>
+					<button type="button" onClick={_add} className="btn btn-default uploadContainer-submit"><span className="glyphicon glyphicon-pencil" ></span></button>
+					<button type="reset" className="btn btn-default uploadContainer-reset" ><span className="glyphicon glyphicon-trash" ></span></button>
 				</div>
-		    </div>
+				</form>
+			</div>
 		</div>
 	)
 }

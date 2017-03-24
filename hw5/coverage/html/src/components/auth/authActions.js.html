@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.02% </span>
+        <span class="strong">30.63% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>35/106</span>
+        <span class='fraction'>34/111</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/27</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">16.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/20</span>
+        <span class='fraction'>4/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">26.32% </span>
+        <span class="strong">24% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>25/95</span>
+        <span class='fraction'>24/100</span>
       </div>
       <div class='fl pad1y'>
         <span class="strong">8 statements</span>
@@ -211,7 +211,20 @@
 162
 163
 164
-165</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -240,6 +253,26 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -250,16 +283,9 @@
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -410,25 +436,38 @@ export const logout = () =&gt; {
 }
 }
 &nbsp;
-export const handleLogin = (userinfo) =&gt; {
-	errorMessage = "";
-	valid = true;
+export const handleLogin = <span class="fstat-no" title="function not covered" >(userinfo) =&gt; {</span>
+	errorMessage = <span class="cstat-no" title="statement not covered" >"";</span>
+	valid = <span class="cstat-no" title="statement not covered" >true;</span>
     
-    return (dispatch) =&gt; {
-        resource('POST', 'login', userinfo)
+    return <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(dispatch) =&gt; {</span></span>
+        resource(<span class="cstat-no" title="statement not covered" >'POST', 'login', userinfo)</span>
         .then(<span class="fstat-no" title="function not covered" >r =&gt; {</span>
             dispatch(<span class="cstat-no" title="statement not covered" >{type: LOGIN, username: userinfo.username, password: userinfo.password})</span>
             fetchArticle()(<span class="cstat-no" title="statement not covered" >dispatch)</span>
             getFollower()(<span class="cstat-no" title="statement not covered" >dispatch)</span>
             fetchProfile()(<span class="cstat-no" title="statement not covered" >dispatch)</span>
         }).catch(<span class="fstat-no" title="function not covered" >err =&gt; {</span>
-            return <span class="cstat-no" title="statement not covered" >{</span>
+            dispatch(<span class="cstat-no" title="statement not covered" >{</span>
                 type: 'ERRORMSG',
                 errorMsg: err.message
-            }
+            }) 
         })
     }
-	
+}
+&nbsp;
+export const login = (userinfo) =&gt; {
+    return (dispatch) =&gt; {
+        resource('POST', 'login', userinfo)
+        .then(<span class="fstat-no" title="function not covered" >r =&gt; {</span>
+            dispatch(<span class="cstat-no" title="statement not covered" >{type: LOGIN, username: userinfo.username, password: userinfo.password})</span>
+        }).catch(<span class="fstat-no" title="function not covered" >err =&gt; {</span>
+            dispatch(<span class="cstat-no" title="statement not covered" >{</span>
+                type: 'ERRORMSG',
+                errorMsg: err.message
+            }) 
+        })
+    }
 }
 &nbsp;
 export const handleSubmit = <span class="fstat-no" title="function not covered" >({<span class="cstat-no" title="statement not covered" >displayName, email, phone, zip, birthDate, password, confirmPassword}) =&gt; {</span></span>
@@ -545,7 +584,7 @@ const isValid = <span class="fstat-no" title="function not covered" >(value, nam
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 17:14:07 GMT-0500 (Central Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 22:10:05 GMT-0500 (Central Daylight Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

@@ -30,10 +30,11 @@ describe('Validate Authenticate Actions', () => {
         mock(`${actions.apiUrl}/login`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
+            status: 200,
             json: {username, result:'success'}
         })
        
-        authActions.handleLogin(username, password)(
+        authActions.login({username, password})(
             action => {
                 expect(action).to.eql({
                     type:'LOGIN',
@@ -47,21 +48,21 @@ describe('Validate Authenticate Actions', () => {
 
      it('should not log in an invalid user', (done)=>{
 
-        const username2 = 'abcd'
+        const username2 = 'abd'
         const password2 = '123'
 
         mock(`${actions.apiUrl}/login`, {
             method: 'POST',
-            headers: {'Content-Type': 'text/plain'},
+            headers: {'Content-Type': 'application/json'},
             status: 401,
             statusText: 'Unauthorized'
         })
 
-        authActions.handleLogin(username2, password2)(
+        authActions.login({username2, password2})(
             action => {
                 expect(action).to.eql({
                     type:'ERRORMSG',
-                    error : 'Unauthorized'
+                    errorMsg : 'Unauthorized'
                 })
             })
         done()

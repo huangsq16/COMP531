@@ -13,8 +13,6 @@ export function searchKeyword(keyword) {
 export const addArticle = (article, avatar) => {
 	return (dispatch) => {resource('POST', 'article', article).then(r => {
 		const _article = r.articles[0]
-		console.log(avatar)
-		_article['img'] = avatar
 		dispatch({
 			type: POST,
 			article: _article

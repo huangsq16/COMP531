@@ -45,13 +45,26 @@ export const handleLogin = (userinfo) => {
             getFollower()(dispatch)
             fetchProfile()(dispatch)
         }).catch(err => {
-            return {
+            dispatch({
                 type: 'ERRORMSG',
                 errorMsg: err.message
-            }
+            }) 
         })
     }
-	
+}
+
+export const login = (userinfo) => {
+    return (dispatch) => {
+        resource('POST', 'login', userinfo)
+        .then(r => {
+            dispatch({type: LOGIN, username: userinfo.username, password: userinfo.password})
+        }).catch(err => {
+            dispatch({
+                type: 'ERRORMSG',
+                errorMsg: err.message
+            }) 
+        })
+    }
 }
 
 export const handleSubmit = ({displayName, email, phone, zip, birthDate, password, confirmPassword}) => {

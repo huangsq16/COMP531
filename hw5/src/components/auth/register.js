@@ -36,11 +36,12 @@ export const SignUp = ({submit, errorMessage, clear, navToSignIn}) => {
 
   //return content be rendered
   return (
-    <div>
-      <div>
+    <div className = "container">
+      <div className = 'row'>
         <h1 className = "logo">RICE BOOK</h1>
       </div>
-    <div className="card">
+      <div className = 'row'>
+    <div className="col-sm-4 col-sm-offset-4 card">
       <h1 className = "txt-align-center">Sign up</h1>
         <div>
             <input className = "commoninput" name="displayName" type="text" ref={(node) => displayName = node} placeholder="Display name"/>
@@ -69,7 +70,8 @@ export const SignUp = ({submit, errorMessage, clear, navToSignIn}) => {
       <div>
         <p className = "txt-warning"> Already have an account? <a href = "#" onClick ={navToSignIn}>Sign in</a></p>
       </div>
-      {failmsg} 
+      {failmsg}
+    </div> 
     </div>
     </div>
   )

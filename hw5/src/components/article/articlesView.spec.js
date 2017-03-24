@@ -32,7 +32,7 @@ describe('ArticlesView (component tests)', ()=>{
         const node = TestUtils.renderIntoDocument(<div><NewArticle addtext = {(e,f) => { toggled = true}} /></div>)
         const elements = findDOMNode(node).children[0]
         expect(toggled).to.be.false
-        TestUtils.Simulate.click(elements.children[0].children[0].children[0].children[1])
+        TestUtils.Simulate.click(elements.children[0].children[0].children[1].children[1])
         expect(toggled).to.be.true
     })
 })
