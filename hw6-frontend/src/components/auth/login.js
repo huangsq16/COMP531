@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-
 import { navMain, handleLogin, navSignUp, clearErr } from './authActions'
 
 export const SignIn = ({login, clear, navToSignUp, errorMessage, successMs}) => {

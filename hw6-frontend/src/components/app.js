@@ -4,7 +4,6 @@ import Landing from './auth/landing'
 import Main from './main/main'
 import Profile from './profile/profile'
 const App = ({location, errorMessage}) => {
-
     let view
     if (location == 'main') {
         view = <Main/>

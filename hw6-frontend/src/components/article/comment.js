@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { updateComments } from './articleActions'
 const ContentEditable = require('react-contenteditable');
 export const Comment = ({comments, article, username, update, avatar}) => {
-
 	const commentItems = comments.map((comment) => {
 		const date = moment(new Date(comment.date));
 		let _avatar = article.author == username ? avatar : 'http://lorempixel.com/396/230/'
@@ -14,7 +13,6 @@ export const Comment = ({comments, article, username, update, avatar}) => {
 			<div key={comment.commentId}>
 			<ul className='comments-list'>
 	          <li className='comment'>
-
 	            <a className='pull-left' href='#'>
 	                <img className='avatar' src={_avatar} alt='avatar'/>
 	            </a>
@@ -27,9 +25,7 @@ export const Comment = ({comments, article, username, update, avatar}) => {
 	                </div>
 	                {(comment.author != username) && <p ref={(node)=>_comment = node}>{comment.text}</p>}
 	                {(comment.author == username) && <ContentEditable  html={_html} onChange={e => {_comment = e.target.value}} />} 
-	                
 	            </div>
-		         	
 	          </li>
 	        </ul>
 	        </div>

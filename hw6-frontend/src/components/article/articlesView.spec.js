@@ -13,7 +13,9 @@ const newArticle = {
     author: "test"
 }
 
-const article = [{"_id":9,"text":"this is test purpose for hy23 only","date":"2015-05-10T15:22:03.638Z","img":"https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg","comments":[],"author":"Follower"}]
+const article = [{"_id":9,"text":"this is test purpose for hy23 only","date":"2015-05-10T15:22:03.638Z",
+"img":"https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg",
+"comments":[],"author":"Follower"}]
 
 describe('ArticlesView (component tests)', ()=>{
 

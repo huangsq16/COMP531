@@ -29,7 +29,6 @@ const newArticle = {
     author: "test"
 }
 
-    
 describe('Validate reducer (no fetch requests here)', ()=> {
     it('should return the initial state', ()=>{
         expect(Reducer(undefined, {})).to.eql(initialState)

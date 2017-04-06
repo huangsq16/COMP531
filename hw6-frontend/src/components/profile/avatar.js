@@ -6,7 +6,7 @@ export const Avatar = ({avatar}) => {
 		<div className="user-avatar">
       		<img className="img_respoonsive" src={avatar}/>
       	</div>
-		)
+	)
 }
 
 Avatar.propTypes = {

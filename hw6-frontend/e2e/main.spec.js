@@ -44,7 +44,7 @@ describe('Test Main Page', (done) => {
             .then(text => {expect(text).to.equal(headline)}))
         .then(done)
     })
-    it("Should Remove a follower and decrease count by 1", (done) => {
+    it("Remove the Follower user and verify following count decreases by one", (done) => {
             let count    
             sleep(500)
             .then(findxpath("//button[@name='rmFollower']")
@@ -59,7 +59,7 @@ describe('Test Main Page', (done) => {
             .then(done)       
     })
 
-    it("Should Add a follower and increase the count by 1", (done) => {
+    it("Add the 'Follower' user and verify following count increases by one", (done) => {
         let count    
          sleep(500)
         .then(findId('follower').sendKeys('hy23'))

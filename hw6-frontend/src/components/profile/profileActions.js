@@ -2,7 +2,7 @@ import { ERRORMSG, UPDATE_PROFILE, FETCH_PROFILE, UPDATE_AVATAR, resource } from
 import {updateHeadline} from '../main/mainActions'
 import Promise from 'bluebird'
 // errorMessage for alerting
-var errorMessage = '';
+let errorMessage = '';
 
 // load reg pattern
 const namepattern = '^[A-Za-z][a-zA-Z0-9]*$';

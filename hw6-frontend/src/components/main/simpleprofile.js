@@ -13,15 +13,10 @@ export const SimpleProfile = ({username, avatar, headline, updatehl}) => {
 			<h3 className="txt-align-center">{username}</h3>	
           	<img id="img1" className="img_respoonsive" src={avatar} alt="Avatar"/>
           	<div className="caption">
-              	<div>
         		<input className = "headline-input" id='simple-headline' type="text" ref={(node) => displayName = node} placeholder={headline}/>
-        		<button id='update-simple-headline' onClick={_updatehl} className="headline-update-button" >
-					<span className="glyphicon glyphicon-pencil"></span>
-				</button>
-    			</div> 
+        		<button id='update-simple-headline' onClick={_updatehl} className="headline-update-button" ><span className="glyphicon glyphicon-pencil"></span></button>
           	</div>		
     	</div>
-		
     )
 	return (
 		<div className="col-sm-12">
@@ -33,8 +28,8 @@ export const SimpleProfile = ({username, avatar, headline, updatehl}) => {
 
 SimpleProfile.propTypes = {
     username: PropTypes.string.isRequired,
-    //avatar: PropTypes.string.isRequired,
-    //headline: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    headline: PropTypes.string.isRequired,
     updatehl: PropTypes.func.isRequired
 }
 

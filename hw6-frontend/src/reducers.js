@@ -43,7 +43,8 @@ const Reducer = (state = {
                 article: [...state.article, ...Actions.followersArticle(action.followers)]}
         case Actions.ADD_FOLLOWER:
             return {...state, errorMsg : '',
-                followers: [{name: action.followers.name, avatar: action.followers.avatar, headline: action.followers.headline}, ...state.followers], 
+                followers: [{name: action.followers.name, avatar: action.followers.avatar, 
+                    headline: action.followers.headline}, ...state.followers], 
                 article: Actions.sortArticle([...state.article, ...action.followers.article])
             }
         case Actions.REMOVE_FOLLOWER:
@@ -59,7 +60,8 @@ const Reducer = (state = {
         case Actions.UPDATE_PROFILE:
             return {...state, successMsg: action.successMsg, email: action.action.email, zipcode: action.action.zipcode}
         case Actions.FETCH_PROFILE:
-            return {...state, headline: action.headline, email: action.email, zipcode: action.zipcode, dob: new Date(action.dob), avatar: action.avatars}
+            return {...state, headline: action.headline, email: action.email, zipcode: action.zipcode, 
+                dob: new Date(action.dob), avatar: action.avatars}
         case Actions.EDIT_REQUEST:
             return {...state, isEdit: action.isEdit}
         case Actions.EDIT_COMMENT_REQUEST:

@@ -20,11 +20,11 @@ export const navMain = () => {
 export const updateHeadline = (text) => {
     return (dispatch) => {
         resource('PUT', 'headline', {headline: text}).then(r => {
-        dispatch({
-            type : UPDATE_HEADLINE,
-            text : r.headline
+            dispatch({
+                type : UPDATE_HEADLINE,
+                text : r.headline
+            })
         })
-    })
     } 
 }
 

@@ -2,7 +2,9 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import {updateProfile, clearErr, updateAvatar} from './profileActions'
 import Avatar from './avatar.js'
-export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDate, password, update, clear, errorMessage, successMs, _updateAvatar}) => {
+export const ProfileForm = ({username, avatar, headline, zipcode, Email, 
+  birthDate, password, update, clear, errorMessage, successMs, _updateAvatar}) => {
+  //profile component needs to transmit multiplie information, that's there are so many variables
   let _headline
   let displayName
   let email;
@@ -22,7 +24,6 @@ export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDa
       confirmPassword: confirmPassword.value != '' ? confirmPassword.value : password
     });
   }
-
   //conditional rendering error information
   if (errorMessage.length != 0) {
     failmsg = <div className='alert alert-danger alert-dismissable fade in' role='alert'>
@@ -35,7 +36,6 @@ export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDa
   } else {
     failmsg = <div></div>
   }
-
   //return content be rendered
   return (
     <div className='profile-card'>
@@ -44,9 +44,7 @@ export const ProfileForm = ({username, avatar, headline, zipcode, Email, birthDa
         <input className='upload-inline' type='file' accept='image/*' onChange={(e) => _updateAvatar(e)}></input>
         <button id='updateProfile' type='submit' className='update-button' onClick={_update}><i className='glyphicon glyphicon-pencil'></i> Update</button>
       </div>
-      <div>
-      {failmsg}
-      </div>
+      <div>{failmsg}</div>
       <div className='user-profile'>
         <div className='user-info'><p>Headline:</p><input className='update-info' placeholder={headline} name='headline' ref={(node) => _headline = node}/></div>
         <div className='user-info'><p>Display name:</p><input className='update-info' placeholder={username} name='displayName' ref={(node) => displayName = node}/></div>
