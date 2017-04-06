@@ -1,0 +1,4 @@
+<testsuite name="Mocha Tests" tests="2" failures="0" errors="0" skipped="0" timestamp="Thu, 06 Apr 2017 03:10:44 GMT" time="0.038">
+<testcase classname="Validate Article functionality" name="post-article" time="0.029"/>
+<testcase classname="Test Headline Functions" name="GET headline, updates the headline message, GET headlines verify" time="0.006"/>
+</testsuite>
