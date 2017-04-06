@@ -1,0 +1,16 @@
+{ "followers": [{
+        "id": 0,
+        "name": "Owen",
+        "avatar": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg",
+        "headline": "No free time"
+    },{
+        "id": 1,
+        "name": "John",
+        "avatar": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg",
+        "headline": "No free food"
+    },{
+        "id": 2,
+        "name": "Zak",
+        "avatar": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg",
+        "headline": "No free drink"
+    }]}

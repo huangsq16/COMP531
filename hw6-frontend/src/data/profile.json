@@ -1,0 +1,13 @@
+{"userinfo" : {
+        "firstName": "Butter",
+        "lastName": "Bread",
+        "displayName":"BBBread",
+        "email": "bread@mail.com",
+        "phone": "000-000-0000",
+        "zip": "77005",
+        "birthDate": "11/22/1990",
+        "password": "",
+        "confirmPassword": "",
+        "userAvatar" : "https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/DWLeebron.jpg/220px-DWLeebron.jpg",
+        "userHeadline": "My class"
+    }}

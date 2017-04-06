@@ -1,0 +1,233 @@
+.article-card-part {
+	position: relative;
+	min-height: 1px;
+	width: 66.66666667%;
+	float: left;
+}
+
+.article-part {
+	position: relative;
+	min-height: 1px;
+	width: 50%;
+	float: left;
+}
+
+
+.article-edit {
+    position: absolute;
+    margin-top: 8px;
+    right: 20px;
+    background-color: white;
+}
+
+
+.commentinline {
+    position: relative;
+    display: inline-block;
+    border-collapse: separate;
+    width:100%;
+}
+
+.commentupdate {
+    position: absolute;
+    right: 20px;
+    height: 30px;
+    border:0;
+}
+
+.commentinput {
+	display: inline-block;
+	width: 100%;
+	height: 40px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border-bottom: 1px solid #ccc;
+	border-radius: 0px;
+}
+.commentinline .reset {
+    position: absolute;
+    right: 5px;
+    margin-top: 1%;
+    border: 0;
+}
+
+.commentinline .submit {
+    position: absolute;
+    right: 40px;
+    margin-top: 1%;
+    border: 0;
+    margin-right: 2%;
+}
+.container-text-area {
+    background: none repeat scroll 0 0 #f5f5f5;
+    float: left;
+    width: 100%;
+}
+
+.img_responsive {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+.panel-shadow {
+    margin-bottom: 5px;
+    border-radius: 0px;
+}
+.panel-white {
+    border: 0px solid #dddddd;
+}
+.post .post-heading {
+    height: 95px;
+    padding: 20px 15px;
+}
+.post .post-heading .avatar {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-right: 15px;
+}
+.post .post-heading .meta .title a {
+    color: black;
+}
+.post .post-heading .meta .time {
+    margin-top: 5px;
+}
+.post .post-description {
+    padding: 15px;
+}
+.post .post-description p {
+    font-size: 14px;
+}
+.post .post-footer {
+    border-top: 1px solid #ddd;
+    padding: 0px;
+}
+
+.post .post-footer .comments-list {
+    padding: 0;
+    margin-top: 5px;
+}
+.post .post-footer .comments-list .comment {
+    display: block;
+    width: 100%;
+    margin-top: 35px;
+}
+.post .post-footer .comments-list .comment .avatar {
+    width: 35px;
+    height: 35px;
+}
+.post .post-footer .comments-list .comment .comment-heading {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+.post .post-footer .comments-list .comment .comment-heading .user {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline;
+    margin-top: 0;
+    margin-right: 10px;
+}
+.post .post-footer .comments-list .comment .comment-heading .time {
+    font-size: 12px;
+    margin-top: 0;
+    display: inline;
+}
+.post .post-footer .comments-list .comment .comment-body {
+    margin-left: 50px;
+}
+
+.resettext {
+    position: absolute;
+    margin-top: 1%;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: solid 0px;
+    background-color: #f5f5f5;
+    color: gray;
+    right: 15%;
+    margin-right: 5%;
+}
+.status-update {
+    min-height: 1px;
+    margin-bottom: 5px;
+}
+
+.status-update-button {
+    border: 0;
+    background: none;
+    padding: 2px 5px;
+    position: absolute;
+    right: 3.5%;
+    margin-top: 1%;
+    border-radius: 3px;
+}
+
+.searchbar {
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+}
+
+.text-area {
+    color: #777777;
+    float: left;
+    font-family: Lato;
+    font-size: 14px;
+    height: 142px;
+    letter-spacing: 0.3px;
+    padding: 20px;
+    width: 100%;
+    resize:vertical;
+    outline:none;
+    border: 1px solid #F2F2F2;
+}
+
+.text-submit {
+    position: absolute;
+    margin-top: -3.5%;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: solid 0px;
+    background-color: #f5f5f5;
+    color: gray;
+    right: 4%;
+}
+
+.uploadinline {
+    position: relative;
+    display: inline-block;
+    border-collapse: separate;
+    float:left;
+}
+
+.uploadContainer {
+    display: inline-block;
+    text-align: right
+}
+
+.uploadContainer-submit {
+    position: absolute;
+    right: 55px;
+    border: 0;
+    background-color: #f5f5f5;
+}
+
+.uploadContainer-reset {
+    position: absolute;
+    right: 17px;
+    border: 0;
+    background-color: #f5f5f5;
+}
+
+

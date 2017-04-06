@@ -1,0 +1,33 @@
+[0405/143848.100:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/143848.126:ERROR:exception_snapshot_win.cc(87)] thread ID 6756 not found in process
+[0405/143848.126:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/144506.080:ERROR:process_info.cc(625)] range at 0x232567a000000000, size 0x1a1 fully unreadable
+[0405/144506.080:ERROR:process_info.cc(625)] range at 0x232567c000000000, size 0x1a1 fully unreadable
+[0405/144506.080:ERROR:process_info.cc(625)] range at 0x0, size 0x1a1 fully unreadable
+[0405/154454.225:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/154454.250:ERROR:exception_snapshot_win.cc(87)] thread ID 5964 not found in process
+[0405/154454.227:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/154454.229:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/154454.250:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/154454.250:ERROR:exception_snapshot_win.cc(87)] thread ID 100 not found in process
+[0405/154454.234:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/154454.250:ERROR:exception_snapshot_win.cc(87)] thread ID 5788 not found in process
+[0405/154454.234:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/154454.234:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/154454.250:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/154454.250:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/154454.250:ERROR:exception_snapshot_win.cc(87)] thread ID 1740 not found in process
+[0405/154454.250:ERROR:exception_snapshot_win.cc(87)] thread ID 11760 not found in process
+[0405/154454.250:ERROR:exception_snapshot_win.cc(87)] thread ID 11496 not found in process
+[0405/154454.250:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/154454.250:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/154454.250:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/154454.234:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/154454.250:ERROR:exception_snapshot_win.cc(87)] thread ID 10624 not found in process
+[0405/154454.250:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/154454.237:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/154454.250:ERROR:exception_snapshot_win.cc(87)] thread ID 6428 not found in process
+[0405/154454.250:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0405/164716.695:ERROR:process_reader_win.cc(114)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
+[0405/164716.696:ERROR:exception_snapshot_win.cc(87)] thread ID 15428 not found in process
+[0405/164716.696:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
