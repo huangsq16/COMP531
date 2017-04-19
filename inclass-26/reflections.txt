@@ -1,0 +1,15 @@
+1. I hope I can learn more detail about how does the browser work but I didn't, you should put these in the first class I think.
+2. I enjoy developing the RiceBook and the advice about working in real company.
+3. Developing the RiceBook, this really gives you the experience about how to build a real website, not the website is made only by HTML.
+4. Well, I will say in-class exerciese, cause some of them are really time consuming, sometime you might need to spend so much time on it, especially for configuration in-class exerciese.
+5. It's hard to say, the material is good and covers a lot, but it moves fast and some in-class exercises didn't help so much. Most of knowledge I have gained is from the Ricebook project, so it might be good to split the hw into some inclass, or extend the deadline of inclass, e.g. the deadline of Tuesday inclass will be on Thursday 2:00pm.
+6. Gives us a good grade will be sweet. I would suggest you to introduce more about how does the browser work, this could be combined with fetch and ajax. The first part of syllabus would look like this:
+1. Intro (introduce more about git will be a good idea, coding style)
+2. HTML, CSS (how does browser render the page)
+3. Javascript (how does browser execute JS, advice about optimize it)
+4. Ajax, fetch (how does browser work)
+5. Design pattern: MVC
+6. React
+7. Redux
+8. testing
+Server side is good, but give more time to in-class hw about configuration problem.
