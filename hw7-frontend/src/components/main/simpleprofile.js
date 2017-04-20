@@ -2,6 +2,10 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Follower from './following'
 import { updateHeadline } from './mainActions'
+
+/*
+	Render simpleprofile, including headline, username and avatar
+*/
 export const SimpleProfile = ({username, avatar, headline, updatehl}) => {
 	let displayName
 	const _updatehl = () => {
@@ -25,14 +29,7 @@ export const SimpleProfile = ({username, avatar, headline, updatehl}) => {
 		</div>
 	)
 }
-/*
-SimpleProfile.propTypes = {
-    username: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    headline: PropTypes.string.isRequired,
-    updatehl: PropTypes.func.isRequired
-}
-*/
+
 export default connect(
   (state) => ({username: state.username,
   				avatar: state.avatar,

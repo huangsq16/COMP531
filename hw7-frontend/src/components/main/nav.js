@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import {navProfile, navMain, navLanding} from './mainActions'
-
+/*
+	render Navigation bar
+*/
 export const Nav = ({flag, logout, profile, main}) => {
 	let link
 	if (flag == 1) {
@@ -28,14 +30,7 @@ export const Nav = ({flag, logout, profile, main}) => {
 		</div>
 	)
 }
-/*
-Nav.propTypes = {
-    flag: PropTypes.number.isRequired,
-    logout: PropTypes.func.isRequired,
-    profile: PropTypes.func.isRequired,
-    main: PropTypes.func.isRequired
-}
-*/
+
 export default connect(
 	(state) => ({flag: state.flag}),
 	(dispatch) => ({logout: () => dispatch(navLanding()),

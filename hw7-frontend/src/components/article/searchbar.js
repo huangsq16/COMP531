@@ -15,10 +15,7 @@ export const SearchBar = ({filter}) => {
 		</div>
 	);
 }
-/*
-SearchBar.propTypes = {
-    filter: PropTypes.func.isRequired
-}*/
+
 export default connect(
 	(state) => ({}),
 	(dispatch) => ({
