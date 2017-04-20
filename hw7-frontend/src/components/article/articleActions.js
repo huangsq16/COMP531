@@ -28,7 +28,6 @@ export const updateArticle = (o) => {
 
 export const updateComments = (o) => {
 	const payload = {text : o.text, commentId: o.commentId}
-	console.log("update" + payload)
 	return (dispatch) => {resource('PUT', `articles/${o.articleId}`, payload)
 		.then(r => {
 			if (r && r.articles) {
