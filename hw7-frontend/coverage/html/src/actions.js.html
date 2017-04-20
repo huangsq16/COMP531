@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\actions.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> actions.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.06% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>54/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">45.83% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>11/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">69.81% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>37/53</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">5 statements, 1 function, 3 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Promise from 'bluebird'
+import fetch from 'isomorphic-fetch'
+&nbsp;
+export const apiUrl = 'https://webdev-dummy.herokuapp.com'
+export const LOGIN = 'LOGIN'
+export const FETCH_PROFILE = 'FETCH_PROFILE'
+export const FETCH_FOLLOWER = 'FETCH_FOLLOWER'
+export const FILTER_KEYWORD = "FILTER_KEYWORD";
+export const NAV_SIGNUP = 'NAV_SIGNUP'
+export const NAV_LANDING = 'NAVIGATE_LANDING'
+export const NAV_PROFILE = 'NAVIGATE_PROFILE'
+export const NAV_MAIN = 'NAVIGATE_MAIN'
+export const NAV_SIGNIN = 'NAV_SIGNIN'
+export const NEW_USER_INFO = 'NEW_USER_INFO'
+export const CLEAR_ERR = 'CLEAR_ERR'
+export const ADD_FOLLOWER = 'ADD_FOLLOWER'
+export const REMOVE_FOLLOWER = 'REMOVE_FOLLOWER'
+export const POST = 'ADD_ARTICLE'
+export const UPDATE_HEADLINE = 'UPDATE_HEADLINE'
+export const ERRORMSG = 'ERRORMSG'
+export const SUCCESSMSG = 'SUCCESSMSG'
+export const FETCH_ARTICLES = 'FETCH_ARTICLES'
+export const UPDATE_PROFILE = 'UPDATE_PROFILE'
+export const resource = (method, endpoint, payload) =&gt; {
+  const options =  {
+    method,
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  if (payload) options.body = JSON.stringify(payload)
+  return fetch(`${apiUrl}/${endpoint}`, options)
+    .then(r =&gt; {
+      if (r.status === 200) {
+        r</span>eturn (r.headers.get('Content-Type').indexOf('json') &gt; 0) ? r.json() : <span class="branch-1 cbranch-no" title="branch not covered" >r.text()
+      } else {
+        throw new Error(r.statusText)
+      }
+    })
+}
+export function errorMsg(msg){
+  return {type: ERRORMSG, errorMsg: msg};
+}
+&nbsp;
+export function successMsg(msg){
+  return {type: SUCCESSMSG, successMsg: msg};
+}
+&nbsp;
+export <span class="fstat-no" title="function not covered" >function sortArticle(article) {</span>
+  if (<span class="cstat-no" title="statement not covered" >article != undefined) {</span>
+    return <span class="cstat-no" title="statement not covered" >article.sort(<span class="fstat-no" title="function not covered" >function(a, b) {</span></span>
+      let <span class="cstat-no" title="statement not covered" >x = new Date(a.date)</span>
+      let <span class="cstat-no" title="statement not covered" >y = new Date(b.date)</span>
+      return ((<span class="cstat-no" title="statement not covered" >x&gt;y) ? -1 :((x&lt;y)?1:0))</span>
+    })
+  } else {
+    return <span class="cstat-no" title="statement not covered" >[]</span>
+  }
+}
+&nbsp;
+export <span class="fstat-no" title="function not covered" >function filterArticle(article, keyword) {</span>
+  if (<span class="cstat-no" title="statement not covered" >keyword.length == 0) {</span>
+    return <span class="cstat-no" title="statement not covered" >article</span>
+  } else {
+    const <span class="cstat-no" title="statement not covered" >filtered = article.filter(<span class="fstat-no" title="function not covered" >(a) =&gt; {</span>return <span class="cstat-no" title="statement not covered" >a.text.indexOf(keyword) &gt;= 0 || a.author == keyword})</span></span>
+    return <span class="cstat-no" title="statement not covered" >sortArticle(filtered)</span>
+  }
+}
+&nbsp;
+export <span class="fstat-no" title="function not covered" >function followersArticle(followers) {</span>
+  if (<span class="cstat-no" title="statement not covered" >followers != undefined) {</span>
+    const <span class="cstat-no" title="statement not covered" >article = []</span>
+    followers.<span class="cstat-no" title="statement not covered" >forEach(<span class="fstat-no" title="function not covered" >a =&gt; {</span></span>
+      article.<span class="cstat-no" title="statement not covered" >push(...a.article)</span>
+    })
+    return <span class="cstat-no" title="statement not covered" >article</span>
+  } else {
+    return <span class="cstat-no" title="statement not covered" >[]</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 22:10:05 GMT-0500 (Central Daylight Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

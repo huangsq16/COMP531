@@ -1,0 +1,82 @@
+
+.followingImage{
+	height:45px;
+	width:45px;
+}
+
+.follower-container{
+	background-color: #fff;
+	width:100%;
+	border: 1px solid #F2F2F2;
+	padding:4%;
+}
+
+.follower-container .follower {
+	margin-bottom: 1%;
+}
+
+.headline-input {
+	margin : 2% auto;
+	border-bottom: 1px solid #d8dade;
+	width: 100%;
+	font-size: 16px;
+	color: black;
+}
+
+.headline-update-button {
+	right: 4.5%;
+	display: inline-block;
+	border: 0;
+	background: none;
+	padding: 2px 5px;
+	margin-top: 10px;
+	margin-bottom: 0;
+	position: absolute;
+}
+.media-left {
+	display: table-cell;
+	vertical-align: top;
+	padding-right: 10px;
+}
+.media-body {
+	display: table-cell;
+	vertical-align: top;
+	overflow: hidden;
+}
+.media-right{
+	display: table-cell;
+	vertical-align: top;
+	padding-left: 10px;
+}
+.media-right button {
+	border:0;
+	background-color: #fff;
+}
+.navbar-helper {
+	background: #fff;
+	border-color: #fff;
+	border-radius: 0;
+}
+
+.navbar-brand-helper {
+	color: white;
+}
+
+.simpleprofile-part {
+	padding-right: 1px;
+	padding-left: 1px;
+}
+
+
+.thumbnail {
+	display: block;
+	margin-bottom: 3px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #F2F2F2;
+	border-radius: 0;
+}
+
+.thumbnail img {
+	width: 93%;
+}
