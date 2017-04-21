@@ -1,0 +1,5 @@
+1. I think Tong Zhou's slides did a good job, it has great layout and looks like a realy slides published by Facebook, very impressive. She delivered some basic point about React Native and I can understand them, the slides also showed some code about that to help people understand how does React work, this is a really good thing that I need to learn if I want to show my idea next time.
+
+2. I think it's Jiawei, he shows the difference between web application and native application, from programming difficult to running efficiency, and one thing I have learned from it is that hybrid application could be the future, for example, you use 90% React Native code and 10% Java code to design a Android application, then you only need to write 10% swift code and reuse the 90% React Native code to design a ios application.
+
+3. I think it's Web VR, I used to think if VR is the future then where does the web go, nobody wants to browser the webpage in a VR device. However, this topic successfully delivered how to combine VR and Web together to create better user experience. Really impressive and give me a good confidence that it's not wrong to choose to be web developer.
