@@ -73,7 +73,7 @@ export function LoggedChecking() {
     return (dispatch) => {
         // try to log in
         resource('GET', 'log').then((response) => {
-            if (response==='fail') {
+            if (response.result==='fail') {
                 return
             } else {
                 if (response.result === 'auth') {

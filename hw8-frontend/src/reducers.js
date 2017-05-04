@@ -43,8 +43,7 @@ const Reducer = (state = {
          case Actions.FILTER_KEYWORD:
             return {...state, keyword : action.keyword}
         case Actions.FETCH_FOLLOWER:
-            return {...state, followers: action.followers, 
-                article: [...state.article, ...Actions.followersArticle(action.followers)]}
+            return {...state, followers: action.followers}
         case Actions.ADD_FOLLOWER:
             return {...state, errorMsg : '',
                 followers: [{name: action.followers.name, avatar: action.followers.avatar, 
