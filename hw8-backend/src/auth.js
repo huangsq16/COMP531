@@ -119,7 +119,7 @@ const putPassword = (req,res) => {
 	const password = req.body.password
 	const username = req.username
 	if (!password){
-		res.status(400).send('missing password')
+		res.sendStatus(200)
 		return
 	} else {
 		User.find({username:username}).exec((err,user) => {
@@ -308,14 +308,14 @@ const Logged = (req, res) => {
 	}  else {
 		const sid = req.cookies[cookieKey]
 		if (!sid){
-			return res.sendStatus(401)
+			return res.status(200).send({result:'fail'})
 		}
 		redis.hgetall(sid, function(err, userObj) {
 			if(err) throw err;
 			if(userObj){
 				return res.status(200).send({username:userObj.username, result: 'reg'})
 			} else {
-				return res.sendStatus(401)
+				return res.status(200).send({result:'fail'})
 			}
 		})
 	}
