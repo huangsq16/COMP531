@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\components\article\articleView.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/components/article/</a> articleView.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.48% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>13/15</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">1 branch</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+import moment from 'moment'
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+&nbsp;
+import { Comment } from './comment'
+&nbsp;
+import { addArticle, searchKeyword } from './articleActions'
+export const ArticleView = ({articles}) =&gt; {
+	// render each article
+	const articleItems = articles.map((article) =&gt; {
+		const date = moment(new Date(article.date));
+		return (
+        	&lt;div key={article._id + Math.random() * 10}&gt;
+		        &lt;div className="panel panel-white post panel-shadow"&gt;
+		            &lt;div className="post-heading"&gt;
+		                &lt;div className="pull-left image"&gt;{article.img &amp;&amp;&lt;img src={article.img} className="img-circle avatar" alt="user profile image"/&gt;}&lt;/div&gt;
+		                &lt;div className="pull-left meta"&gt;
+		                    &lt;div className="title h5"&gt;&lt;a href="#"&gt;&lt;b&gt;{article.author}&lt;/b&gt;&lt;/a&gt;&lt;/div&gt;
+		                    &lt;h6 className="text-muted time"&gt;{date.format('MM-DD-YYYY')} at {date.format('HH:mm:ss')}&lt;/h6&gt;
+		                &lt;/div&gt;
+		                &lt;div className="article-edit"&gt;&lt;a href="#"&gt;&lt;i className="glyphicon glyphicon-pencil article-edit"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+		            &lt;/div&gt; 
+		            &lt;div className="post-description"&gt;{article.img &amp;&amp; &lt;img id="img1" className="img_respoonsive" src={article.img} alt="Image"/&gt; }&lt;p&gt;{article.text}&lt;/p&gt;&lt;/div&gt;
+		            &lt;div className="post-footer"&gt;
+		                &lt;form &gt; 
+		                	&lt;div className="commentinline"&gt;
+		                    &lt;input className="commentinput" placeholder="Add a comment" type="text"/&gt;
+		                    &lt;button type="button" className="btn btn-default submit"&gt;&lt;span className="glyphicon glyphicon-pencil" &gt;&lt;/span&gt;&lt;/button&gt;
+							&lt;button type="reset" className="btn btn-default reset" &gt;&lt;span className="glyphicon glyphicon-trash" &gt;&lt;/span&gt;&lt;/button&gt;
+							&lt;/div&gt;
+		                &lt;/form&gt;
+		               &lt;Comment comments={article.comments}/&gt;
+		            &lt;/div&gt;
+		        &lt;/div&gt;
+			&lt;/div&gt;
+        );
+	});
+&nbsp;
+	return (
+		&lt;div&gt;
+			{articleItems}
+		&lt;/div&gt;
+	)
+}
+&nbsp;
+ArticleView.propTypes = {
+    articles: PropTypes.array.isRequired
+}
+&nbsp;
+export default connect(
+<span class="fstat-no" title="function not covered" >  (state) =&gt; (<span class="cstat-no" title="statement not covered" >{articles: state.filteredArticles}),</span></span>
+<span class="fstat-no" title="function not covered" >  (dispatch) =&gt; (<span class="cstat-no" title="statement not covered" >{})</span></span>
+  )(ArticleView)
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 22:10:05 GMT-0500 (Central Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\components\auth\login.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/components/auth/</a> login.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>12/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.43% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/23</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">1 statement, 1 branch</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+&nbsp;
+import { navMain, handleLogin, navSignUp, clearErr } from './authActions'
+&nbsp;
+export const SignIn = <span class="fstat-no" title="function not covered" >({<span class="cstat-no" title="statement not covered" >login, clear, navToSignUp, errorMessage, successMs}) =&gt; {</span></span>
+  let <span class="cstat-no" title="statement not covered" >username;</span>
+  let <span class="cstat-no" title="statement not covered" >password;</span>
+  let <span class="cstat-no" title="statement not covered" >failmsg;</span>
+  // fake login, we let any user can access the main page
+  const <span class="cstat-no" title="statement not covered" >_login = <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+    clear();
+    login(<span class="cstat-no" title="statement not covered" >{</span>
+      username: username ? username.value : null,
+      password: password ? password.value : null
+    });
+  }
+  if (<span class="cstat-no" title="statement not covered" >errorMessage.length != 0) {</span>
+    failmsg = <span class="cstat-no" title="statement not covered" >&lt;div className="alert alert-danger alert-dismissable fade in" role="alert"&gt;</span>
+      &lt;p&gt;{errorMessage}&lt;/p&gt;
+      &lt;/div&gt;;
+  } else <span class="cstat-no" title="statement not covered" >if (successMs.length != 0) {</span>
+    failmsg = <span class="cstat-no" title="statement not covered" >&lt;div className="alert alert-success alert-dismissable fade in" role="alert"&gt;</span>
+      &lt;p&gt;{successMs}&lt;/p&gt;
+      &lt;/div&gt;;
+  } else {
+    failmsg = <span class="cstat-no" title="statement not covered" >&lt;div&gt;&lt;/div&gt;</span>
+  }
+  // return content to be rendered
+  return (
+<span class="cstat-no" title="statement not covered" >    &lt;div className = "container"&gt;</span>
+      &lt;div className = "row"&gt;
+        &lt;div className = "col-sm-6 col-sm-offset-3"&gt;
+        &lt;h1 className = "logo"&gt;RICE BOOK&lt;/h1&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className = "row"&gt;
+        &lt;div className="col-sm-4 col-sm-offset-4 card"&gt;
+          &lt;h1 className = "txt-align-center"&gt;Sign In&lt;/h1&gt;
+            &lt;div&gt;
+                &lt;input className = "commoninput" name="username" type="text" ref={<span class="fstat-no" title="function not covered" >(node) =&gt; <span class="cstat-no" title="statement not covered" >username = node} placeholder="User Name"/&gt;</span></span>
+            &lt;/div&gt;    
+            &lt;div&gt;
+                &lt;input className = "commoninput" name="password" type="password" ref={<span class="fstat-no" title="function not covered" >(node) =&gt; <span class="cstat-no" title="statement not covered" >password = node} placeholder="Password"/&gt;</span></span>
+            &lt;/div&gt; 
+            &lt;div&gt;
+            &lt;button onClick={_login} className="btn btn-primary pure-button"&gt;Sign In&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+            &lt;p className = "txt-warning"&gt; New User? &lt;a href = "#" onClick ={navToSignUp}&gt;Register&lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      {failmsg}
+    &lt;/div&gt;
+  )
+}
+&nbsp;
+SignIn.propTypes = {
+  login: PropTypes.func.isRequired,
+  navToSignUp: PropTypes.func.isRequired,
+  clear: PropTypes.func.isRequired
+}
+&nbsp;
+export default connect(
+<span class="fstat-no" title="function not covered" >  (state) =&gt; (<span class="cstat-no" title="statement not covered" >{errorMessage: state.errorMsg,</span></span>
+    successMs: state.successMsg}),
+<span class="fstat-no" title="function not covered" >  (dispatch) =&gt; (<span class="cstat-no" title="statement not covered" >{ login: <span class="fstat-no" title="function not covered" >(info) =&gt; <span class="cstat-no" title="statement not covered" >handleLogin(info)(dispatch),</span></span></span></span>
+  navToSignUp: <span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >dispatch(navSignUp()),clear: <span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >dispatch(clearErr()) })</span></span></span></span>
+  )(SignIn)
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 22:10:05 GMT-0500 (Central Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

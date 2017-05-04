@@ -1,0 +1,61 @@
+.card{
+	position: relative;
+	background-color: #fff;
+	padding: 2%; 
+	border: none; 
+	box-shadow: 0 3px 15px 0 rgba(0,0,0,.16);
+
+}
+
+.commoninput {
+	margin : 2% auto;
+	border-bottom: 1px solid #d8dade;
+	width: 100%;
+	font-size: 16px;
+
+}
+
+.firstname {
+	margin: 0 0 0 auto;
+	border-bottom: 1px solid #d8dade;
+	width: 49%;
+	font-size: 16px;
+}
+
+.lastname {
+	margin-left: 5px;
+	border-bottom: 1px solid #d8dade;
+	width: 49%;
+	font-size: 16px;
+}
+
+.logo {
+	margin-top: 5%;
+	text-align: center;
+	font-size: 60px;
+	font-weight: 900;
+	color: silver;
+}
+
+.pure-button {
+	position : relative;
+	margin-top: 2%;
+	padding: .75em 1.45em;
+	box-sizing: border-box;
+	font-size: 16px;
+	border-radius: 2px;
+	width: 100%;
+	border: solid 1px #198fff;
+	background-color: #198fff;
+	color: #fff;
+}
+
+.txt-warning {
+	margin-top: 5%;
+	text-align: center;
+	font-size: 14px;
+}
+
+.fb-login-button {
+	width:100%
+}
