@@ -132,12 +132,15 @@ const putArticle = (req, res) => {
 							}
 						}
 					})
-					if (!flag) {
-						res.status(400).send('Wrong commentId or username is not same')
-		    			return
-					} else {
+					Article.update({_id:req.params.id}, {$set: {comments: article.comments}}, {new:true}, (err, result) => {
+						if (!flag) {
+							res.status(400).send('Wrong commentId or username is not same')
+							return
+						} else {
 							res.status(200).send({articles:[article]})
-		    		}
+						}
+					})
+					
 		    	}
 		    }
     	}
